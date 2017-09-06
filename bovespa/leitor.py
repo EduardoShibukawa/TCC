@@ -2,8 +2,7 @@ def to_float(value):
     return float(value) / 100
        
 class Registro01(object):        
-    def __init__(self, linha):
-        self.tipo_registro = 1
+    def __init__(self, linha):        
         self.data_pregao = int(linha[2:10])
         self.codigo_bdi = linha[10:12]
         self.codigo_negociacao = linha[12:24]
@@ -43,6 +42,6 @@ class Leitor(object):
         for linha in arquivo.readlines():
             tipo_registro = int(linha[:2])
             if tipo_registro == 1:
-                 registros.append(Registro01(linha))
+                 registros.append(Registro01(linha).__dict__)
 
         return registros

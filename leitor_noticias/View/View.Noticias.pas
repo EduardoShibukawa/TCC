@@ -16,7 +16,7 @@ type
   TfNoticias = class(TForm)
     dxlytcntrlMainGroup_Root: TdxLayoutGroup;
     dxlytcntrlMain: TdxLayoutControl;
-    btnAbrirJSON: TcxButton;
+    btnCarregarDados: TcxButton;
     dxAbrirXML: TdxLayoutItem;
     btnGravarCSV: TcxButton;
     dxGravarXML: TdxLayoutItem;
@@ -38,12 +38,12 @@ type
     rgSentimento: TcxRadioGroup;
     dxSentimento: TdxLayoutItem;
     actlstList: TActionList;
-    actAbrirJSON: TAction;
+    actCarregarArquivo: TAction;
     actGravarCSV: TAction;
     actGravarDados: TAction;
     dxLayoutGroup1: TdxLayoutGroup;
     procedure lstNoticiasClick(Sender: TObject);
-    procedure actAbrirJSONExecute(Sender: TObject);
+    procedure actCarregarArquivoExecute(Sender: TObject);
     procedure actGravarCSVExecute(Sender: TObject);
     procedure actGravarDadosExecute(Sender: TObject);
   private
@@ -53,7 +53,7 @@ type
 
     procedure GravaDadosNoticia;
 
-    procedure CarregarCSV;
+    procedure CarregarArquivo;
     procedure GravarCSV;
   public
     { Public declarations }
@@ -64,15 +64,15 @@ var
 
 implementation
 
-uses Pattern.ConcreteAggregateCSV, Pattern.Iterator;
+uses Pattern.ConcreteAggregateJSON, Pattern.ConcreteAggregateCSV, Pattern.Iterator;
 
 {$R *.dfm}
 
 { TfNoticias }
 
-procedure TfNoticias.actAbrirJSONExecute(Sender: TObject);
+procedure TfNoticias.actCarregarArquivoExecute(Sender: TObject);
 begin
-  CarregarCSV;
+  CarregarArquivo;
   lstNoticias.ItemIndex := 0;
   CarregarDadosNoticia;
 end;
@@ -89,7 +89,7 @@ begin
     GravaDadosNoticia;
 end;
 
-procedure TfNoticias.CarregarCSV;
+procedure TfNoticias.CarregarArquivo;
 var
   Iterator: IIterator<TNoticia>;
 begin
@@ -98,7 +98,10 @@ begin
 
   if OpenDialog.Execute() then
   begin
-    FAggregate := TConcreteAggregateCSV.Create(OpenDialog.FileName);
+    if String.LowerCase(OpenDialog.FileName).EndsWith('json') then
+      FAggregate := TConcreteAggregateJSON.Create(OpenDialog.FileName)
+    else
+      FAggregate := TConcreteAggregateCSV.Create(OpenDialog.FileName);
 
     Iterator := FAggregate.GetIterator;
 

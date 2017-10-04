@@ -21,8 +21,6 @@ object fNoticias: TfNoticias
     Height = 885
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 580
-    ExplicitHeight = 372
     object lstNoticias: TcxListBox
       Left = 10
       Top = 90
@@ -32,13 +30,13 @@ object fNoticias: TfNoticias
       TabOrder = 3
       OnClick = lstNoticiasClick
     end
-    object btnAbrirJSON: TcxButton
+    object btnCarregarDados: TcxButton
       Left = 10
       Top = 10
       Width = 95
       Height = 25
       Hint = 'CTRL + O'
-      Action = actAbrirJSON
+      Action = actCarregarArquivo
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
@@ -187,7 +185,7 @@ object fNoticias: TfNoticias
       Parent = dxlytgrpTop
       CaptionOptions.Text = 'cxButton1'
       CaptionOptions.Visible = False
-      Control = btnAbrirJSON
+      Control = btnCarregarDados
       ControlOptions.ShowBorder = False
       Index = 0
     end
@@ -255,17 +253,17 @@ object fNoticias: TfNoticias
     end
   end
   object OpenDialog: TOpenDialog
-    Filter = 'JSON|*.json|Todos Arquivos|*.*'
+    Filter = 'JSON|*.json|CSV|*.csv|Todos Arquivos|*.*'
     Left = 784
     Top = 16
   end
   object actlstList: TActionList
     Left = 880
-    Top = 16
-    object actAbrirJSON: TAction
-      Caption = 'Abrir JSON'
+    Top = 24
+    object actCarregarArquivo: TAction
+      Caption = 'Carregar Arquivo'
       ShortCut = 16463
-      OnExecute = actAbrirJSONExecute
+      OnExecute = actCarregarArquivoExecute
     end
     object actGravarCSV: TAction
       Caption = 'Gravar CSV'

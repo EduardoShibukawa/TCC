@@ -47,7 +47,11 @@ begin
     FFormato.ExportarCampo(DateToStr(aNoticia.DataAtualizacao));
     FFormato.ExportarCampo(aNoticia.Titulo);
     FFormato.ExportarCampo(aNoticia.Conteudo);
-    FFormato.ExportarCampo(Integer(aNoticia.Sentimento).ToString);
+    case aNoticia.Sentimento of
+      senNegativo: FFormato.ExportarCampo('-1');
+      senPositivo: FFormato.ExportarCampo('1');
+      senNeutro: FFormato.ExportarCampo('0');
+    end;
   end;
   FFormato.SalvarArquivo('dados\Noticias');
 end;

@@ -9,15 +9,16 @@ uses
   dxLayoutcxEditAdapters, cxContainer, cxEdit, Vcl.ComCtrls, dxCore, cxDateUtils, cxCheckBox,
   cxMemo, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxCalendar, cxListBox, Vcl.StdCtrls, cxButtons,
   cxClasses, dxLayoutControl, Pattern.Aggregate, Pattern.Abstraction, Pattern.ConcreteImplementorCSV,
-  Pattern.RefinedAbstraction.Noticia, Model.Noticia;
+  Pattern.RefinedAbstraction.Noticia, Model.Noticia, cxGroupBox, cxRadioGroup, System.Actions,
+  Vcl.ActnList;
 
 type
   TfNoticias = class(TForm)
     dxlytcntrlMainGroup_Root: TdxLayoutGroup;
     dxlytcntrlMain: TdxLayoutControl;
-    btnAbrirXML: TcxButton;
+    btnAbrirJSON: TcxButton;
     dxAbrirXML: TdxLayoutItem;
-    btnGravarXML: TcxButton;
+    btnGravarCSV: TcxButton;
     dxGravarXML: TdxLayoutItem;
     lstNoticias: TcxListBox;
     dxNoticias: TdxLayoutItem;
@@ -25,8 +26,6 @@ type
     dxDataAtualizacao: TdxLayoutItem;
     mmoConteudo: TcxMemo;
     dxConteudo: TdxLayoutItem;
-    ckNegativo: TcxCheckBox;
-    dxNegativo: TdxLayoutItem;
     dxlytgrpClient: TdxLayoutGroup;
     dxlytgrpLeft: TdxLayoutGroup;
     dxlytgrpTop: TdxLayoutGroup;
@@ -34,13 +33,19 @@ type
     OpenDialog: TOpenDialog;
     mmoTitulo: TcxMemo;
     dxTitulo: TdxLayoutItem;
-    dxLayoutGroup1: TdxLayoutGroup;
     btnGravarDados: TcxButton;
-    dxLayoutItem1: TdxLayoutItem;
+    dxGravarDados: TdxLayoutItem;
+    rgSentimento: TcxRadioGroup;
+    dxSentimento: TdxLayoutItem;
+    actlstList: TActionList;
+    actAbrirJSON: TAction;
+    actGravarCSV: TAction;
+    actGravarDados: TAction;
+    dxLayoutGroup1: TdxLayoutGroup;
     procedure lstNoticiasClick(Sender: TObject);
-    procedure btnAbrirXMLClick(Sender: TObject);
-    procedure btnGravarXMLClick(Sender: TObject);
-    procedure btnGravarDadosClick(Sender: TObject);
+    procedure actAbrirJSONExecute(Sender: TObject);
+    procedure actGravarCSVExecute(Sender: TObject);
+    procedure actGravarDadosExecute(Sender: TObject);
   private
     { Private declarations }
     FAggregate: IAggregate<TNoticia>;
@@ -65,22 +70,23 @@ uses Pattern.ConcreteAggregateCSV, Pattern.Iterator;
 
 { TfNoticias }
 
-procedure TfNoticias.btnAbrirXMLClick(Sender: TObject);
+procedure TfNoticias.actAbrirJSONExecute(Sender: TObject);
 begin
   CarregarCSV;
+  lstNoticias.ItemIndex := 0;
   CarregarDadosNoticia;
 end;
 
-procedure TfNoticias.btnGravarDadosClick(Sender: TObject);
+procedure TfNoticias.actGravarCSVExecute(Sender: TObject);
+begin
+  GravarCSV;
+end;
+
+procedure TfNoticias.actGravarDadosExecute(Sender: TObject);
 begin
   if Assigned(FAggregate)
     and (FAggregate.GetLista.Count > 0) then
     GravaDadosNoticia;
-end;
-
-procedure TfNoticias.btnGravarXMLClick(Sender: TObject);
-begin
-  GravarCSV;
 end;
 
 procedure TfNoticias.CarregarCSV;
@@ -94,22 +100,21 @@ begin
   begin
     FAggregate := TConcreteAggregateCSV.Create(OpenDialog.FileName);
 
-    //FAggregate := TConcreteAggregateCSV.Create('K:\UEM\TCC\Noticias\dados\items_g1_noticias_9.json');
-
     Iterator := FAggregate.GetIterator;
 
     lstNoticias.Clear;
-
     Iterator.PrimeiroObjeto;
     while not Iterator.FimLista do
     begin
-      Iterator.ProximoObjeto;
       lstNoticias.Items.Add(Format(
        '%s - %s', [
-       FormatDateTime('yyyyy/mm/dd', Iterator.ObjetoAtual.DataAtualizacao),
+       FormatDateTime('dd/mm/yyyy', Iterator.ObjetoAtual.DataAtualizacao),
        Iterator.ObjetoAtual.Titulo
       ]));
+      Iterator.ProximoObjeto;
     end;
+
+    lstNoticias.ItemIndex := 0;
   end;
 end;
 
@@ -120,12 +125,12 @@ var
 begin
   Iterator := FAggregate.GetIterator;
 
-  aNoticia := Iterator.Buscar(lstNoticias.ItemIndex + 1);
+  aNoticia := Iterator.Buscar(lstNoticias.ItemIndex);
 
   edtDataAtualizacao.Date := aNoticia.DataAtualizacao;
   mmoTitulo.Text := aNoticia.Titulo;
   mmoConteudo.Text := aNoticia.Conteudo;
-  ckNegativo.Checked := aNoticia.Sentimento = senNegativo;
+  rgSentimento.EditValue := Integer(aNoticia.Sentimento);
 end;
 
 procedure TfNoticias.GravaDadosNoticia;
@@ -135,14 +140,12 @@ var
 begin
   Iterator := FAggregate.GetIterator;
 
-  aNoticia := Iterator.Buscar(lstNoticias.ItemIndex + 1);
+  aNoticia := Iterator.Buscar(lstNoticias.ItemIndex);
 
   aNoticia.DataAtualizacao := edtDataAtualizacao.Date;
   aNoticia.Titulo := mmoTitulo.Text;
   aNoticia.Conteudo := mmoConteudo.Text;
-  if ckNegativo.Checked then
-    aNoticia.Sentimento := senNegativo
-  else aNoticia.Sentimento := senPositivo;
+  aNoticia.Sentimento := TSentimento(rgSentimento.EditValue);
 end;
 
 procedure TfNoticias.GravarCSV;
@@ -166,3 +169,5 @@ begin
 end;
 
 end.
+
+

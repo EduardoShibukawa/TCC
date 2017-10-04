@@ -150,11 +150,14 @@ begin
       aNoticia.DataAtualizacao := ToDate(ToString(JSON.Values['data_atualizacao'].ToString));
       aNoticia.Titulo := UTF8ToAnsi(ToString(JSON.Values['titulo'].ToString));
       try
-        aNoticia.Sentimento := senNegativo;
+        aNoticia.Sentimento := senNeutro;
         if JSON.ToJSON.Contains('sentimento') then
         begin
-          if JSON.Values['sentimento'].ToString.Trim = '0' then
-            aNoticia.Sentimento := senPositivo
+          if JSON.Values['sentimento'].ToString.Trim = '-1' then
+            aNoticia.Sentimento := senNegativo
+          else if JSON.Values['sentimento'].ToString.Trim = '0' then
+            aNoticia.Sentimento := senNeutro
+          else aNoticia.Sentimento := senPositivo
         end;
       except
         aNoticia.Sentimento := senNegativo;
@@ -163,8 +166,6 @@ begin
 
       // Adiciona o objeto na lista
       FLista.Add(aNoticia);
-
-      FLista.Sort()
     end;
   finally
     // Libera a variável da memória

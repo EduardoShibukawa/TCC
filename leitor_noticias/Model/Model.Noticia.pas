@@ -3,7 +3,7 @@ unit Model.Noticia;
 interface
 
 type
-  TSentimento = (senNegativo, senPositivo);
+  TSentimento = (senNegativo, senPositivo, senNeutro);
   TNoticia = class
   private
     FSentimento: TSentimento;

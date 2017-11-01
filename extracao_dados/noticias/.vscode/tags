@@ -1,0 +1,54 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BOT_NAME	../noticias/settings.py	/^BOT_NAME = 'noticias'$/;"	kind:variable	line:12
+DOWNLOAD_DELAY	../noticias/settings.py	/^DOWNLOAD_DELAY = 10$/;"	kind:variable	line:30
+ExameNoticiasSpider	../noticias/spiders/exame_noticias.py	/^class ExameNoticiasSpider(Spider):$/;"	kind:class	line:12
+G1NoticiasSpider	../noticias/spiders/g1_noticias.py	/^class G1NoticiasSpider(Spider):$/;"	kind:class	line:10
+ItemLoader	../noticias/spiders/exame_noticias.py	/^from scrapy.loader import ItemLoader$/;"	kind:namespace	line:3
+ItemLoader	../noticias/spiders/g1_noticias.py	/^from scrapy.loader import ItemLoader$/;"	kind:namespace	line:3
+NEWSPIDER_MODULE	../noticias/settings.py	/^NEWSPIDER_MODULE = 'noticias.spiders'$/;"	kind:variable	line:15
+NoticiasItem	../noticias/items.py	/^class NoticiasItem(scrapy.Item):    $/;"	kind:class	line:11
+NoticiasItem	../noticias/spiders/exame_noticias.py	/^from noticias.items import NoticiasItem$/;"	kind:namespace	line:7
+NoticiasItem	../noticias/spiders/g1_noticias.py	/^from noticias.items import NoticiasItem$/;"	kind:namespace	line:7
+ROBOTSTXT_OBEY	../noticias/settings.py	/^ROBOTSTXT_OBEY = False$/;"	kind:variable	line:22
+Request	../noticias/spiders/exame_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
+Request	../noticias/spiders/g1_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
+SPIDER_MODULES	../noticias/settings.py	/^SPIDER_MODULES = ['noticias.spiders']$/;"	kind:variable	line:14
+Spider	../noticias/spiders/exame_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
+Spider	../noticias/spiders/g1_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
+USER_AGENT	../noticias/settings.py	/^USER_AGENT = "Mozilla\/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko\/20100101 Firefox\/40.1" $/;"	kind:variable	line:19
+__init__.py	../noticias/__init__.py	1;"	kind:file	line:1
+__init__.py	../noticias/spiders/__init__.py	1;"	kind:file	line:1
+conteudo	../noticias/items.py	/^    conteudo = scrapy.Field()$/;"	kind:variable	line:13
+data_atualizacao	../noticias/items.py	/^    data_atualizacao = scrapy.Field()/;"	kind:variable	line:14
+exame_noticias.py	../noticias/spiders/exame_noticias.py	1;"	kind:file	line:1
+find_packages	../setup.py	/^from setuptools import setup, find_packages$/;"	kind:namespace	line:3
+format_google_url	../noticias/spiders/exame_noticias.py	/^    def format_google_url(self, url):                       $/;"	kind:member	line:22
+format_google_url	../noticias/spiders/g1_noticias.py	/^    def format_google_url(self, url):                       $/;"	kind:member	line:31
+g1_noticias.py	../noticias/spiders/g1_noticias.py	1;"	kind:file	line:1
+items.py	../noticias/items.py	1;"	kind:file	line:1
+name	../noticias/spiders/exame_noticias.py	/^    name = 'exame_noticias'$/;"	kind:variable	line:13
+name	../noticias/spiders/g1_noticias.py	/^    name = 'g1_noticias'$/;"	kind:variable	line:11
+name	../setup.py	/^    name         = 'project',$/;"	kind:variable	line:6
+packages	../setup.py	/^    packages     = find_packages(),$/;"	kind:variable	line:8
+parse	../noticias/spiders/exame_noticias.py	/^    def parse(self, response):$/;"	kind:member	line:25
+parse	../noticias/spiders/g1_noticias.py	/^    def parse(self, response):$/;"	kind:member	line:34
+parse_exame	../noticias/spiders/exame_noticias.py	/^    def parse_exame(self, response):                                        $/;"	kind:member	line:37
+parse_g1	../noticias/spiders/g1_noticias.py	/^    def parse_g1(self, response):                                        $/;"	kind:member	line:50
+parse_qs	../noticias/spiders/exame_noticias.py	/^from urlparse import urlparse, parse_qs$/;"	kind:namespace	line:4
+parse_qs	../noticias/spiders/g1_noticias.py	/^from urlparse import urlparse, parse_qs$/;"	kind:namespace	line:4
+re	../noticias/spiders/exame_noticias.py	/^import re$/;"	kind:namespace	line:9
+scrapy	../noticias/items.py	/^import scrapy$/;"	kind:namespace	line:8
+settings.py	../noticias/settings.py	1;"	kind:file	line:1
+setup	../setup.py	/^from setuptools import setup, find_packages$/;"	kind:namespace	line:3
+setup.py	../setup.py	1;"	kind:file	line:1
+start_requests	../noticias/spiders/exame_noticias.py	/^    def start_requests(self):$/;"	kind:member	line:17
+start_requests	../noticias/spiders/g1_noticias.py	/^    def start_requests(self):$/;"	kind:member	line:16
+titulo	../noticias/items.py	/^    titulo = scrapy.Field()$/;"	kind:variable	line:12
+urlparse	../noticias/spiders/exame_noticias.py	/^from urlparse import urlparse, parse_qs$/;"	kind:namespace	line:4
+urlparse	../noticias/spiders/g1_noticias.py	/^from urlparse import urlparse, parse_qs$/;"	kind:namespace	line:4
+version	../setup.py	/^    version      = '1.0',$/;"	kind:variable	line:7

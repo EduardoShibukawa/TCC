@@ -26,7 +26,7 @@ class Connect(object):
 class EscritorSQLLite(object):
     def __init__(self):
         self.tb_name = 'Registro01'
-        self.db = Connect('bovespa.db')        
+        self.db = Connect('..//data/bovespa.db')        
 
     def close_connection(self):
         self.db.close_db()

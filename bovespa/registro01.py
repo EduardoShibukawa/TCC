@@ -1,6 +1,6 @@
 import peewee
 
-data_base = peewee.SqliteDatabase('bovespa.db')
+data_base = peewee.SqliteDatabase('/home/eduardo/UEM/GIT/TCC/data/bovespa.db')
 
 class Registro01(peewee.Model):        
     data_pregao = peewee.DateField()

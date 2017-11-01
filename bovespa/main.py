@@ -11,13 +11,19 @@ def criar_tabela():
         print('Tabela Registro01 já existe!')
 
 def escrever(registros):
-    criar_tabela()
+    criar_tabela()    
+    atual = 0
     for registro in registros:
+        atual += 1
+        print("Salvando {}".format(atual))
+        #print("Salvando {} de {}".format(atual, count_registros))
         registro.save()
     #Registro01.insert_many(registros).execute()
 
 leitor = LeitorPeewee()
-registros = leitor.ler("/home/eduardo/UEM/TCC/Git/TCC/bovespa/COTAHIST_M082017.TXT")
+registros = leitor.ler("/home/eduardo/UEM/GIT/TCC/data/COTAHIST_A2017.TXT")
+registros = filter(lambda r: r.codigo_negociacao.startswith('PETR4'), registros)
+
 escrever(registros)
 
 rows = Registro01.select().order_by(Registro01.preco_ultimo)

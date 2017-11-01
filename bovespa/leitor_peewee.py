@@ -6,13 +6,13 @@ def to_float(value):
 def new_registro01(linha):
     reg01 = Registro01()    
     reg01.data_pregao = int(linha[2:10])
-    reg01.codigo_bdi = linha[10:12]
-    reg01.codigo_negociacao = linha[12:24]
+    reg01.codigo_bdi = linha[10:12].strip()
+    reg01.codigo_negociacao = linha[12:24].strip()
     reg01.tipo_mercado = int(linha[24:27])
-    reg01.nome_resumido = linha[27:39]
-    reg01.especificaco = linha[39:49]
-    reg01.prazo_termo = linha[49:52]
-    reg01.moeda = linha[52:56]
+    reg01.nome_resumido = linha[27:39].strip()
+    reg01.especificaco = linha[39:49].strip()
+    reg01.prazo_termo = linha[49:52].strip()
+    reg01.moeda = linha[52:56].strip()
     reg01.preco_abertura = to_float(linha[57:69])
     reg01.preco_maximo = to_float(linha[69:82])
     reg01.preco_minimo = to_float(linha[82:95])
@@ -28,7 +28,7 @@ def new_registro01(linha):
     reg01.data_vencimento =  int(linha[202:210])
     reg01.fator_cotacao = int(linha[210:217])
     reg01.ptoexe  = to_float(linha[217:230])
-    reg01.codigo_isin = linha[230:242]
+    reg01.codigo_isin = linha[230:242].strip()
     reg01.dismes = int(linha[242:245])
     return reg01
 

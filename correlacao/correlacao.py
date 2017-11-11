@@ -5,6 +5,10 @@ import os
 import pandas as pd
 import numpy as np
 
+
+from sklearn import preprocessing
+
+
 from scipy.stats.stats import pearsonr
 
 import re
@@ -41,6 +45,20 @@ def get_acao_petrobras(data_pregao):
 
 def get_correlacao(x, y):
     return pearsonr(y, x)
+
+def normalizar(dic, range):    
+    df = pd.DataFrame(list(dic.items()), columns=['data', 'valor'])
+    y = df['valor'].values.astype(float)
+    y = y.reshape(-1,1)
+    # Create a minimum and maximum processor object
+    min_max_scaler = preprocessing.MinMaxScaler(feature_range=range)
+
+    # Create an object to transform the data to fit minmax processor
+    y_scaled = min_max_scaler.fit_transform(y)
+
+    # Run the normalizer on the dataframe            
+    df['valor'] = y_scaled    
+    return {row['data']: row['valor'] for _,row in df.iterrows()}
 
 def normalizar_sentimentos(sentimentos):
     sentimentos_dup = sentimentos.copy()
@@ -80,10 +98,18 @@ def gerar_correlacao(dataset):
     sentimentos_sem_acao = {key: sentimentos[key] for key in sentimentos if key not in list(valores_acao.keys())}    
     sentimentos = {key: sentimentos[key] for key in sentimentos if key not in list(sentimentos_sem_acao.keys())}    
     
-    sentimentos_normalizado = normalizar_sentimentos(sentimentos)    
+    import operator
+        
+    max_range =  1 #max(valores_acao.items(), key=operator.itemgetter(1))[1]
+    min_range = -1 #min(valores_acao.items(), key=operator.itemgetter(1))[1]        
 
-    save_dictionary(valores_acao, 'valores_acao')
+    #sentimentos_normalizado = normalizar(sentimentos, (min_range, max_range))    
+    sentimentos_normalizado = normalizar_sentimentos(sentimentos)    
+    acoes_normalizado = normalizar(valores_acao, (min_range, max_range))                
+        
+    save_dictionary(valores_acao, 'valores_acao')    
     save_dictionary(sentimentos_normalizado, 'sentimentos_normalizado')
+    save_dictionary(acoes_normalizado, 'acoes_normalizado')
 
     correlacao = get_correlacao(
         list(sentimentos.values()),
@@ -91,7 +117,7 @@ def gerar_correlacao(dataset):
     )
     correlacao_normalizado = get_correlacao(
         list(sentimentos_normalizado.values()),
-        list(valores_acao.values())
+        list(acoes_normalizado.values())
     )
 
     return correlacao, correlacao_normalizado

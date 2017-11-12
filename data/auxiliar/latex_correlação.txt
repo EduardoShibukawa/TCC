@@ -1,0 +1,14 @@
+Dados de maio & Não & 16.96\% & 53.00\% \\
+Dados de maio & Sim & 13.98\% & 60.57\% \\
+Dados de junho & Não & 3.91\% & 89.45\% \\
+Dados de junho & Sim & 14.22\% & 62.78\% \\
+Dados de julho & Não & -9.19\% & 76.53\% \\
+Dados de julho & Sim & -10.84\% & 72.45\% \\
+Dados de agosto & Não & 4.62\% & 89.92\% \\
+Dados de agosto & Sim & -11.66\% & 74.83\% \\
+Dados de setembro & Não & -5.59\% & 84.32\% \\
+Dados de setembro & Sim & 1.74\% & 95.09\% \\
+Dados de outubro & Não & 22.58\% & 43.77\% \\
+Dados de outubro & Sim & 17.30\% & 55.41\% \\
+Dados geral & Não & 18.12\% & 10.33\% \\
+Dados geral & Sim & 20.60\% & 6.34\% \\

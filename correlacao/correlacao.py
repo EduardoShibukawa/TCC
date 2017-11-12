@@ -16,19 +16,19 @@ from datetime import datetime, timedelta
 
 def save_dictionary(dictionary, name):
     np.save(
-        os.path.join(os.path.dirname(__file__), '..//data', name), 
+        os.path.join(os.path.dirname(__file__), '..//data//dics', name), 
         dictionary
     ) 
 
 def get_dataset(filename):
     try:
         return pd.read_csv(
-            os.path.join(os.path.dirname(__file__), '..//data', filename),
+            os.path.join(os.path.dirname(__file__), '..//data//input', filename),
             usecols=['data', 'sentimento']
         )             
     except:
         dataset =  pd.read_csv(
-            os.path.join(os.path.dirname(__file__), '..//data', filename),
+            os.path.join(os.path.dirname(__file__), '..//data//input', filename),
             usecols=['data_atualizacao', 'sentimento']
         )     
         dataset.rename(columns={'data_atualizacao': 'data'}, inplace=True)    
@@ -92,7 +92,7 @@ def gerar_valores_e_sentimentos(dataset):
     return valores_acao, sentimentos
 
 
-def gerar_correlacao(dataset):
+def gerar_correlacao(dataset, arquivo_salvar):
     valores_acao, sentimentos = gerar_valores_e_sentimentos(dataset)
 
     sentimentos_sem_acao = {key: sentimentos[key] for key in sentimentos if key not in list(valores_acao.keys())}    
@@ -107,9 +107,9 @@ def gerar_correlacao(dataset):
     sentimentos_normalizado = normalizar_sentimentos(sentimentos)    
     acoes_normalizado = normalizar(valores_acao, (min_range, max_range))                
         
-    save_dictionary(valores_acao, 'valores_acao')    
-    save_dictionary(sentimentos_normalizado, 'sentimentos_normalizado')
-    save_dictionary(acoes_normalizado, 'acoes_normalizado')
+    save_dictionary(valores_acao, 'valores_acao_{}'.format(arquivo_salvar))    
+    save_dictionary(sentimentos_normalizado, 'sentimentos_normalizado_{}'.format(arquivo_salvar))
+    save_dictionary(acoes_normalizado, 'acoes_normalizado_{}'.format(arquivo_salvar))
 
     correlacao = get_correlacao(
         list(sentimentos.values()),
@@ -121,13 +121,49 @@ def gerar_correlacao(dataset):
     )
 
     return correlacao, correlacao_normalizado
-    
-dataset = get_dataset('noticias_teste.csv')                
-correlacao, correlacao_normalizado = gerar_correlacao(dataset)
-print("teste manual ", correlacao)
-print("teste manual normalizado ", correlacao_normalizado)
 
-dataset = get_dataset('scikit_sentimentos.csv')
-correlacao, correlacao_normalizado = gerar_correlacao(dataset)
-print("teste previsão ", correlacao)
-print("teste previsão normalizado ", correlacao_normalizado)
+def print_correlacao(campo,normal,pcorrelacao, text_file):
+    if normal:
+        print("{} & Sim & {:.2f}\\% & {:.2f}\\% \\\\".format(
+            campo,
+            pcorrelacao[0] * 100,
+            pcorrelacao[1] * 100
+        ), file=text_file)
+    else:
+        print("{} & Não & {:.2f}\\% & {:.2f}\\% \\\\".format(
+            campo,
+            pcorrelacao[0] * 100,
+            pcorrelacao[1] * 100
+        ), file=text_file)
+    
+
+
+with open("..//data//auxiliar//latex_correlação.txt", "w") as text_file:
+    arquivos = [        
+        'noticias_maio.csv',
+        'noticias_junho.csv',
+        'noticias_julho.csv',
+        'noticias_agosto.csv',
+        'noticias_setembro.csv',
+        'noticias_outubro.csv'
+    ]    
+
+    for arquivo in arquivos:
+        correlacao, correlacao_normalizado = gerar_correlacao(get_dataset(arquivo), arquivo)        
+        campo = "Dados de " + arquivo[9:arquivo.find('.csv') ]        
+        print_correlacao(campo, False, correlacao, text_file)        
+        print_correlacao(campo, True, correlacao_normalizado, text_file)        
+
+    dataset = pd.concat([        
+            get_dataset('noticias_maio.csv'),
+            get_dataset('noticias_junho.csv'),
+            get_dataset('noticias_julho.csv'),
+            get_dataset('noticias_agosto.csv'),                
+            get_dataset('noticias_setembro.csv'),
+            get_dataset('noticias_outubro.csv'), 
+        ], ignore_index=True 
+    )
+
+    correlacao, correlacao_normalizado = gerar_correlacao(dataset, 'geral')    
+    print_correlacao("Dados geral", False, correlacao, text_file)        
+    print_correlacao("Dados geral", True, correlacao_normalizado, text_file)        

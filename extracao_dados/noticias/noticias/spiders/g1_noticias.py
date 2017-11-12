@@ -15,8 +15,8 @@ class G1NoticiasSpider(Spider):
 
     def start_requests(self):
         query = 'allintitle:petrobras site:g1.globo.com/economia'
-        date_min = '9/1/2017'
-        date_max = '9/30/2017'
+        date_min = '11/1/2017'
+        date_max = '11/10/2017'
         pages = 4
         for i in range(0, pages):
             start = i * 10

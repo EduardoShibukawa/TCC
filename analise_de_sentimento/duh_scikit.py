@@ -10,23 +10,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import itertools
 
-def get_dataset_g1_treino(filename):    
+def get_dataset_g1_rotulado(filename):    
     dataset = pd.read_csv(
-      os.path.join(os.path.dirname(__file__), '..//data', filename),
+      os.path.join(os.path.dirname(__file__), '..//data//input', filename),
       usecols= ['data_atualizacao', 'titulo', 'conteudo', 'sentimento']        
     )        
     dataset.rename(columns={'data_atualizacao': 'data'}, inplace=True)    
 
     return dataset    
-
-def get_dataset_g1(filename):    
-    dataset = pd.read_csv(
-        os.path.join(os.path.dirname(__file__), '..//data', filename), 
-        usecols= ['data_atualizacao', 'titulo', 'conteudo']                
-    )    
-    dataset.rename(columns={'data_atualizacao': 'data'}, inplace=True)
-
-    return dataset
 
 def clean_text_field(dataset, fieldname, translate):
     cleaned_field = []
@@ -66,18 +57,17 @@ def train_nayve(data_features, data_labels):
 def save_dataset(dataset, predictions):
     output = pd.DataFrame(data={"data":dataset['data'],"titulo":dataset["titulo"], "sentimento":predictions})            
     output.to_csv(
-        os.path.join(os.path.dirname(__file__), '..//data', 'scikit_sentimentos.csv')    
+        os.path.join(os.path.dirname(__file__), '..//data//output', 'sentimentos_scikit.csv')    
     )    
 
 def generate_csv(classifier, dataset, data_features):
     predictions = classifier.predict(data_features)        
     save_dataset(dataset, predictions)    
 
-def cross_validation(classifier_name, classifier, X, y):
+def cross_validation(classifier, X, y):
     # Applying k-Fold Cross Validation
     from sklearn.model_selection import cross_val_score
-    accuracies = cross_val_score(estimator = classifier, X = X, y = y, cv = 10)    
-    print(classifier_name)
+    accuracies = cross_val_score(estimator = classifier, X = X, y = y, cv = 10)        
     print("------------------------")
     print("Accuracias dos Folds: {}".format(accuracies))
     print("Media Accuracia: {}".format(accuracies.mean()))
@@ -85,7 +75,7 @@ def cross_validation(classifier_name, classifier, X, y):
     print("------------------------")
 
     
-def gerar_metricas(classifier_name, y_true, y_pred):        
+def gerar_metricas(fonte, y_true, y_pred):        
     import sklearn.metrics as skm        
     # Making the Confusion Matrix
     cm = skm.confusion_matrix(y_true, y_pred)        
@@ -94,25 +84,27 @@ def gerar_metricas(classifier_name, y_true, y_pred):
     # Plot non-normalized confusion matrix
     class_names =['Negativo', 'Neutro', 'Positivo']    
     plot_confusion_matrix(cm, classes=class_names,
-                          title='Matriz de confusão de setembro')
-    plt.savefig('..//data//cm_{}.png'.format(classifier_name))        
-    
-    # Plot normalized confusion matrix        
-    """
-    np.set_printoptions(precision=2)
-    plot_confusion_matrix(cm, classes=class_names, normalize=True,
-                          title='Normalized confusion matrix')        
-    np.set_printoptions(precision=2)
-    plt.savefig('..//data//cm_{}_normal.png'.format(classifier_name))
-    """
+                          title='Matriz de confusão de {}'.format(fonte))
+    plt.savefig('..//data//output//cm_{}.png'.format(fonte))        
     
     precision, recall, fbeta_score, support = skm.precision_recall_fscore_support(y_true, y_pred, average='macro')    
-    print("Kappa: {}".format(skm.cohen_kappa_score(y_true,y_pred)))    
+    kappa = skm.cohen_kappa_score(y_true,y_pred)
+    print("Kappa: {}".format(kappa))
     print("Precisão: {}".format(precision))
     print("Recall: {}".format(recall))   
     print("FBeta: {}".format(fbeta_score))
     print("Suporte: {}".format(support))        
     print("----------------------------")    
+
+    with open("..//data//auxiliar//latex_metricas_{}.txt".format(fonte), "w") as text_file:
+        print("{} & {:.2f}\\% & {:.2f}\\% & {:.2f}\\% & {:.2f}\\% \\\\".format(
+            fonte,
+            kappa * 100,
+            precision * 100,
+            recall * 100,
+            fbeta_score * 100
+        ), file=text_file)            
+
     
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
@@ -143,21 +135,22 @@ def plot_confusion_matrix(cm, classes,
     plt.ylabel('True label')
     plt.xlabel('Predicted label')    
 
-def testar(classificador, X,Y):    
+def testar(fonte, classificador, X,Y):    
     y_pred = classificador.predict(X)    
-    gerar_metricas('Nayve', Y, y_pred)                        
+    gerar_metricas(fonte, Y, y_pred)                        
+
 
 dataset_train = pd.concat([        
-        get_dataset_g1_treino('noticias_maio.csv'),
-        get_dataset_g1_treino('noticias_junho.csv'),
-        get_dataset_g1_treino('noticias_julho.csv'),
-        get_dataset_g1_treino('noticias_agosto.csv'),                
-        get_dataset_g1_treino('noticias_setembro.csv'),
+        get_dataset_g1_rotulado('noticias_maio.csv'),
+        get_dataset_g1_rotulado('noticias_junho.csv'),
+        get_dataset_g1_rotulado('noticias_julho.csv'),
+        get_dataset_g1_rotulado('noticias_agosto.csv'),                
+        get_dataset_g1_rotulado('noticias_setembro.csv'),
     ], ignore_index=True 
 )
 
 dataset_test = pd.concat([                
-        get_dataset_g1_treino('noticias_outubro.csv'),      
+        get_dataset_g1_rotulado('noticias_outubro.csv'),      
     ], ignore_index=True 
 )
 
@@ -174,13 +167,13 @@ print("Treinando classificador")
 nayve_classifier = train_nayve(X_train, y_train)
 
 print("Cross validation")
-cross_validation('Nayve', nayve_classifier, X_train, y_train)
+cross_validation(nayve_classifier, X_train, y_train)
 
 print("Testando dataset de treino")
-testar(nayve_classifier, X_test, y_test)
+testar("Treino", nayve_classifier, X_test, y_test)
 
 print("Testando dataset de teste real")
-testar(nayve_classifier, feature_test, dataset_test['sentimento'])
+testar("Outubro", nayve_classifier, feature_test, dataset_test['sentimento'])
 
 print("Gerando CSV")
 generate_csv(nayve_classifier, dataset_test, feature_test)

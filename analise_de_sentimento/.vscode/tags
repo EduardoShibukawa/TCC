@@ -1,0 +1,57 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BeautifulSoup	../KaggleWord2VecUtility.py	/^from bs4 import BeautifulSoup$/;"	kind:namespace	line:9
+CountVectorizer	../duh_scikit.py	/^from sklearn.feature_extraction.text import CountVectorizer$/;"	kind:namespace	line:5
+KaggleWord2VecUtility	../KaggleWord2VecUtility.py	/^class KaggleWord2VecUtility(object):$/;"	kind:class	line:13
+KaggleWord2VecUtility	../duh_scikit.py	/^from KaggleWord2VecUtility import KaggleWord2VecUtility$/;"	kind:namespace	line:7
+KaggleWord2VecUtility.py	../KaggleWord2VecUtility.py	1;"	kind:file	line:1
+MultinomialNB	../duh_scikit.py	/^    from sklearn.naive_bayes import MultinomialNB$/;"	kind:namespace	line:61
+RandomForestClassifier	../duh_scikit.py	/^from sklearn.ensemble import RandomForestClassifier$/;"	kind:namespace	line:6
+TextBlob	../duh_scikit.py	/^from textblob import TextBlob$/;"	kind:namespace	line:4
+TextBlob	../duh_text_blob.py	/^from textblob import TextBlob$/;"	kind:namespace	line:3
+clean_text_field	../duh_scikit.py	/^def clean_text_field(dataset, fieldname, translate):$/;"	kind:function	line:31
+create_bag_of_words	../duh_scikit.py	/^def create_bag_of_words(train_data, test_data):    $/;"	kind:function	line:50
+cross_val_score	../duh_scikit.py	/^    from sklearn.model_selection import cross_val_score$/;"	kind:namespace	line:78
+cross_validation	../duh_scikit.py	/^def cross_validation(classifier_name, classifier, X, y):$/;"	kind:function	line:76
+dataset	../duh_text_blob.py	/^dataset = get_dataset('noticias_teste.csv')$/;"	kind:variable	line:28
+dataset_test	../duh_scikit.py	/^dataset_test = get_dataset_g1_treino('noticias_teste.csv')$/;"	kind:variable	line:158
+dataset_train	../duh_scikit.py	/^dataset_train = get_dataset_g1_treino('g1_noticias_treino.csv')$/;"	kind:variable	line:157
+duh_scikit.py	../duh_scikit.py	1;"	kind:file	line:1
+duh_text_blob.py	../duh_text_blob.py	1;"	kind:file	line:1
+generate_csv	../duh_scikit.py	/^def generate_csv(classifier, dataset, data_features):$/;"	kind:function	line:72
+gerar_metricas	../duh_scikit.py	/^def gerar_metricas(classifier_name, y_true, y_pred):        $/;"	kind:function	line:87
+get_dataset	../duh_text_blob.py	/^def get_dataset(filename):$/;"	kind:function	line:6
+get_dataset_g1	../duh_scikit.py	/^def get_dataset_g1(filename):    $/;"	kind:function	line:22
+get_dataset_g1_treino	../duh_scikit.py	/^def get_dataset_g1_treino(filename):$/;"	kind:function	line:13
+get_translated_blob	../duh_text_blob.py	/^def get_translated_blob(text):$/;"	kind:function	line:11
+itertools	../duh_scikit.py	/^import itertools$/;"	kind:namespace	line:11
+matplotlib	../duh_scikit.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:10
+nayve_classifier	../duh_scikit.py	/^nayve_classifier = train_nayve(feature_train, dataset_train["sentimento"])$/;"	kind:variable	line:169
+nltk	../KaggleWord2VecUtility.py	/^import nltk$/;"	kind:namespace	line:4
+np	../KaggleWord2VecUtility.py	/^import numpy as np$/;"	kind:namespace	line:7
+np	../duh_scikit.py	/^import numpy as np$/;"	kind:namespace	line:9
+os	../duh_scikit.py	/^import os$/;"	kind:namespace	line:3
+os	../duh_text_blob.py	/^import os$/;"	kind:namespace	line:1
+output	../duh_text_blob.py	/^output = pd.DataFrame(data={$/;"	kind:variable	line:30
+output	../duh_text_blob.py	/^output = pd.DataFrame(data={$/;"	kind:variable	line:40
+pd	../KaggleWord2VecUtility.py	/^import pandas as pd$/;"	kind:namespace	line:6
+pd	../duh_scikit.py	/^import pandas as pd$/;"	kind:namespace	line:8
+pd	../duh_text_blob.py	/^import pandas as pd$/;"	kind:namespace	line:2
+plot_confusion_matrix	../duh_scikit.py	/^def plot_confusion_matrix(cm, classes,$/;"	kind:function	line:116
+plt	../duh_scikit.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:10
+re	../KaggleWord2VecUtility.py	/^import re$/;"	kind:namespace	line:3
+review_to_sentences	../KaggleWord2VecUtility.py	/^    def review_to_sentences( review, tokenizer, remove_stopwords=False ):$/;"	kind:member	line:40
+review_to_wordlist	../KaggleWord2VecUtility.py	/^    def review_to_wordlist( review, remove_stopwords=False ):$/;"	kind:member	line:17
+save_dataset	../duh_scikit.py	/^def save_dataset(dataset, predictions):$/;"	kind:function	line:66
+sentiment	../duh_text_blob.py	/^def sentiment(dataset):$/;"	kind:function	line:15
+sklearn	../duh_scikit.py	/^    import sklearn.metrics as skm        $/;"	kind:namespace	line:88
+skm	../duh_scikit.py	/^    import sklearn.metrics as skm        $/;"	kind:namespace	line:88
+stopwords	../KaggleWord2VecUtility.py	/^from nltk.corpus import stopwords$/;"	kind:namespace	line:10
+test	../duh_scikit.py	/^test = clean_text_field(dataset_test, 'conteudo', True)$/;"	kind:variable	line:163
+testar	../duh_scikit.py	/^def testar(classificador, X,Y):$/;"	kind:function	line:145
+train	../duh_scikit.py	/^train = clean_text_field(dataset_train, 'conteudo', False)$/;"	kind:variable	line:162
+train_nayve	../duh_scikit.py	/^def train_nayve(data_features, data_labels):    $/;"	kind:function	line:60

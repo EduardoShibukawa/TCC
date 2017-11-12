@@ -2,10 +2,19 @@ import os
 import pandas as pd
 from textblob import TextBlob
 
+def to_latex(dataset):
+    with open("latex_text_blob.txt", "w") as text_file:
+        for index, row in dataset.iterrows():                
+            print("{} & {} & {:4f} & {:4f} \\\\".format(
+                row['data'],
+                row['dtitulo'][:80].replace('$', '\\$').replace('%', '\\%') + ' ...',
+                row['sentimento'][0],
+                row['sentimento'][1]
+            ), file=text_file)            
 
 def get_dataset(filename):
     return pd.read_csv(
-        os.path.join(os.path.dirname(__file__), 'data', filename)        
+        os.path.join(os.path.dirname(__file__), '..//data//input', filename)        
     )    
 
 def get_translated_blob(text):
@@ -25,23 +34,27 @@ def sentiment(dataset):
     return sentimento_titulo, sentimento_conteudo
 
 
-dataset = get_dataset('noticias_teste.csv')
-sentimento_titulo, sentimento_conteudo = sentiment(dataset)
-output = pd.DataFrame(data={
-    "data":dataset["data_atualizacao"],    
-    "titulo":dataset["titulo"],    
-    "sentimento_titulo":sentimento_titulo, 
-})
-output.to_csv(
-    os.path.join(os.path.dirname(__file__), 'data', 'text_blob_sentimentos_titulo.csv')    
-)    
+dataset = pd.concat([        
+#        get_dataset('noticias_maio.csv'),
+#        get_dataset('noticias_junho.csv'),
+#        get_dataset('noticias_julho.csv'),
+#        get_dataset('noticias_agosto.csv'),                
+#        get_dataset('noticias_setembro.csv'),
+        get_dataset('noticias_outubro.csv'),
 
+    ], ignore_index=True 
+)
+
+sentimento_titulo, sentimento_conteudo = sentiment(dataset)
 
 output = pd.DataFrame(data={
     "data":dataset["data_atualizacao"],    
     "dtitulo":dataset["titulo"],    
-    "sentimento_conteudo": sentimento_conteudo,
+    "sentimento": sentimento_conteudo    
 })
+
 output.to_csv(
-    os.path.join(os.path.dirname(__file__), 'data', 'text_blob_sentimentos_conteudo.csv')    
+    os.path.join(os.path.dirname(__file__), '..//data//output', 'sentimentos_text_blob.csv')    
 )    
+
+to_latex(output)

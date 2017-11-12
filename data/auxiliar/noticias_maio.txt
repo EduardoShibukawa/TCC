@@ -1,0 +1,32 @@
+02/05/2017 & Justiça libera venda de área no pré-sal da Petrobras à StatoilVenda no valor de US\$125 bilhão foi anunciada em ... & 1 \\
+02/05/2017 & Presidente da Petrobras diz que preço do petróleo não ameaça venda de ativos Plano da Petrobras é de desinvest ... & 1 \\
+03/05/2017 & Decreto regulamenta direito de preferência da Petrobras em leilões no pré-salEstatal deverá manifestar seu int ... & -1 \\
+08/05/2017 & Representante da Petrobras na Bolívia está em prisão domiciliar; estatal vai recorrerDisputa na Justiça no val ... & -1 \\
+08/05/2017 & Justiça extingue ação contra venda da BR Distribuidora pela PetrobrasAção popular que buscava suspender o proc ... & 1 \\
+09/05/2017 & Petrobras diz que ainda não escolheu modelo de venda da BR DistribuidoraEm comunicado estatal informa que está ... & 0 \\
+10/05/2017 & Bovespa tem forte alta puxada por aprovação de reforma e PetrobrasNa véspera índice fechou em alta de 115\% aos ... & 1 \\
+10/05/2017 & Petrobras coloca refinaria de Pasadena na lista de ativos à vendaCompra da refinaria americana em 2006 levanto ... & -1 \\
+11/05/2017 & Petrobras tem lucro de R\$ 445 bi no 1º trimestre melhor resultado desde 2015Trata-se do segundo lucro trimestr ... & 1 \\
+11/05/2017 & Bovespa fecha em alta à espera de balanço da PetrobrasNoticiário corporativo marcou movimentação do dia; índic ... & 1 \\
+12/05/2017 & Petrobras reduz em US\$3 bi investimentos previstos para o ano a US\$17 biA previsão para o saldo de caixa final ... & 1 \\
+12/05/2017 & Petrobras diz que teve decisão favorável do Carf em processo administrativo fiscalEstatal divulgou comunicado  ... & 0 \\
+12/05/2017 & Petrobras Distribuidora abre inscrições para estágio Oportunidades são para níveis médio/técnico e superior. B ... & 0 \\
+12/05/2017 & Bovespa fecha em alta de 1\% puxada por Petrobras e QualicorpNa véspera o índice fechou em alta de 028\% a 67.53 ... & 1 \\
+16/05/2017 & Petrobras coloca à venda 100\% de campo na bacia do AmazonasEstatal oferece participação no Campo de Azulão res ... & 1 \\
+16/05/2017 & Novo processo de venda de ativos da Petrobras muda cronograma de negócios diz ParentePorém a meta de desinvest ... & -1 \\
+16/05/2017 & Petrobras exercerá direito nos leilões do pré-sal diz ministro; Parente admite interesseSegundo presidente da  ... & 0 \\
+17/05/2017 & Produção de petróleo da Petrobras no país em abril cai 1\% ante marçoSegundo a estatal resultado se deve à cont ... & -1 \\
+18/05/2017 & Ação da Petrobras tem sua maior queda diária desde 1999Levantamento foi feito pela Economatica. Bradesco teve  ... & -1 \\
+18/05/2017 & Parente diz que alta do dólar é positiva para PetrobrasQuestionado sobre o futuro do governo Temer presidente  ... & 1 \\
+18/05/2017 & Ações da Petrobras e Vale têm forte queda na bolsa de Frankfurt e no pré-mercado de Nova York Petrobras chegou ... & -1 \\
+19/05/2017 & Papéis da Petrobras e Vale sobem no pré-mercado após forte queda da vésperaRecibos da Petrobras e Vale negocia ... & 1 \\
+22/05/2017 & Petrobras coloca à venda 100\% de campo na Bacia de SolimõesSegundo estatal Campo de Juruá é oportunidade para  ... & 1 \\
+22/05/2017 & Petrobras conclui captação de US\$ 4 bilhões em títulos de dívidaEmpresa destacou que a emissão foi a de menor  ... & 1 \\
+24/05/2017 & Petrobras vê exportação mais forte em 2017 e prevê alta de quase 50\% até 2021Gerente-executivo de comercializa ... & 1 \\
+24/05/2017 & Ação que proibia venda de campos da Petrobras no Sergipe e Ceará é extintaDecisão ocorre após o Tribunal de Co ... & 1 \\
+25/05/2017 & Petrobras leva em conta restrição financeira para decidir sobre pré-sal diz ParenteDecisão de exercer direito  ... & 0 \\
+25/05/2017 & Petrobras exercerá direito de preferência para arrematar 30\% de 3 áreas do pré-salCaso fique apenas com as par ... & 0 \\
+25/05/2017 & Petrobras reduz preço da gasolina em 54\% e do diesel em 35\%Desde que começou sua nova política de preços estat ... & -1 \\
+26/05/2017 & Petrobras fecha acordo que libera Carioca Engenharia para participar de licitaçõesEmpreiteira estava proibida  ... & -1 \\
+30/05/2017 & Eletrobras enfrenta Petrobras na Justiça para liberar operação de térmica de R\$ 17 bilhãoPetroleira se recusa  ... & -1 \\
+30/05/2017 & Petrobras diz que TRF manteve decisão favorável sobre venda de fatia na LiquigásSegundo a estatal tribunal man ... & -1 \\

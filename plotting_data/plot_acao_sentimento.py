@@ -17,6 +17,7 @@ arquivos = [
 ]    
 
 for arquivo in arquivos:
+    campo = "Dados de " + arquivo[9:arquivo.find('.csv') ]        
     valores_acao = load_dictionary('acoes_normalizado_{}.npy'.format(arquivo))
     sentimentos_normalizado = load_dictionary('sentimentos_normalizado_{}.npy'.format(arquivo))
     # Create traces
@@ -39,7 +40,9 @@ for arquivo in arquivos:
     p = ply.offline.plot({
         "data": [trace0, trace1], 
         "layout": go.Layout(
-            title="Ação X Sentimento - {} Normalizado".format(arquivo),        
+            title="Ação X Sentimento - {}".format(campo),        
             font=dict(family='Courier New, monospace', size=18, color='rgb(0,0,0)')
-        )}, filename='..//data//plot//{}.html'.format(arquivo)
-    )        
+        )}, filename='..//data//plot//{}.html'.format(campo.lower().replace("dados", "grafico").replace(" ", "_"))
+    )
+    
+    

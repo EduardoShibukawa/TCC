@@ -25,7 +25,7 @@ LeitorPeewee	../bovespa/leitor_peewee.py	/^class LeitorPeewee(object):    $/;"	k
 LeitorPeewee	../bovespa/main.py	/^from leitor_peewee import LeitorPeewee$/;"	kind:namespace	line:3
 Meta	../bovespa/registro01.py	/^    class Meta:        $/;"	kind:class	line:32
 Meta	../correlacao/registro01.py	/^    class Meta:        $/;"	kind:class	line:32
-MultinomialNB	../analise_de_sentimento/duh_scikit.py	/^    from sklearn.naive_bayes import MultinomialNB    $/;"	kind:namespace	line:61
+MultinomialNB	../analise_de_sentimento/duh_scikit.py	/^    from sklearn.naive_bayes import MultinomialNB    $/;"	kind:namespace	line:52
 NEWSPIDER_MODULE	../extracao_dados/noticias/noticias/settings.py	/^NEWSPIDER_MODULE = 'noticias.spiders'$/;"	kind:variable	line:15
 NoticiasItem	../extracao_dados/noticias/noticias/items.py	/^class NoticiasItem(scrapy.Item):    $/;"	kind:class	line:11
 NoticiasItem	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^from noticias.items import NoticiasItem$/;"	kind:namespace	line:7
@@ -37,6 +37,7 @@ Registro01	../bovespa/leitor_peewee.py	/^from registro01 import Registro01$/;"	k
 Registro01	../bovespa/main.py	/^from registro01 import Registro01$/;"	kind:namespace	line:4
 Registro01	../bovespa/registro01.py	/^class Registro01(peewee.Model):        $/;"	kind:class	line:5
 Registro01	../correlacao/correlacao.py	/^from registro01 import Registro01$/;"	kind:namespace	line:1
+Registro01	../correlacao/correlacao_data_anterior.py	/^from registro01 import Registro01$/;"	kind:namespace	line:1
 Registro01	../correlacao/registro01.py	/^class Registro01(peewee.Model):        $/;"	kind:class	line:5
 Request	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
 Request	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
@@ -45,6 +46,7 @@ Spider	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^from scra
 Spider	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^from scrapy import Spider, Request$/;"	kind:namespace	line:2
 TextBlob	../analise_de_sentimento/duh_scikit.py	/^from textblob import TextBlob$/;"	kind:namespace	line:4
 TextBlob	../analise_de_sentimento/duh_text_blob.py	/^from textblob import TextBlob$/;"	kind:namespace	line:3
+TextBlob	../auxiliar_latex/criador_tabela_latex.py	/^from textblob import TextBlob$/;"	kind:namespace	line:3
 USER_AGENT	../extracao_dados/noticias/noticias/settings.py	/^USER_AGENT = "Mozilla\/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko\/20100101 Firefox\/40.1" $/;"	kind:variable	line:19
 __init__	../bovespa/EscritorSQLLite.py	/^    def __init__(self):$/;"	kind:member	line:27
 __init__	../bovespa/EscritorSQLLite.py	/^    def __init__(self, db_name):$/;"	kind:member	line:5
@@ -54,7 +56,10 @@ __init__.py	../extracao_dados/noticias/noticias/__init__.py	1;"	kind:file	line:1
 __init__.py	../extracao_dados/noticias/noticias/spiders/__init__.py	1;"	kind:file	line:1
 __repr__	../bovespa/leitor.py	/^    def __repr__(self):$/;"	kind:member	line:35
 __str__	../bovespa/leitor.py	/^    def __str__(self):$/;"	kind:member	line:32
-clean_text_field	../analise_de_sentimento/duh_scikit.py	/^def clean_text_field(dataset, fieldname, translate):$/;"	kind:function	line:31
+arquivos	../correlacao/correlacao.py	/^arquivos = [        $/;"	kind:variable	line:167
+arquivos	../plotting_data/plot_acao_sentimento.py	/^arquivos = [        $/;"	kind:variable	line:10
+campo	../correlacao/correlacao.py	/^campo = "8 - Dados geral"$/;"	kind:variable	line:198
+clean_text_field	../analise_de_sentimento/duh_scikit.py	/^def clean_text_field(dataset, fieldname, translate):$/;"	kind:function	line:22
 close_connection	../bovespa/EscritorSQLLite.py	/^    def close_connection(self):$/;"	kind:member	line:31
 close_db	../bovespa/EscritorSQLLite.py	/^    def close_db(self):$/;"	kind:member	line:20
 codigo_bdi	../bovespa/registro01.py	/^    codigo_bdi = peewee.CharField(max_length=2) $/;"	kind:variable	line:7
@@ -65,12 +70,14 @@ codigo_negociacao	../bovespa/registro01.py	/^    codigo_negociacao = peewee.Char
 codigo_negociacao	../correlacao/registro01.py	/^    codigo_negociacao = peewee.CharField(max_length=12)$/;"	kind:variable	line:8
 conteudo	../extracao_dados/noticias/noticias/items.py	/^    conteudo = scrapy.Field()$/;"	kind:variable	line:13
 correlacao.py	../correlacao/correlacao.py	1;"	kind:file	line:1
-create_bag_of_words	../analise_de_sentimento/duh_scikit.py	/^def create_bag_of_words(train_data, test_data):    $/;"	kind:function	line:50
+correlacao_data_anterior.py	../correlacao/correlacao_data_anterior.py	1;"	kind:file	line:1
+create_bag_of_words	../analise_de_sentimento/duh_scikit.py	/^def create_bag_of_words(train_data, test_data):    $/;"	kind:function	line:41
+criador_tabela_latex.py	../auxiliar_latex/criador_tabela_latex.py	1;"	kind:file	line:1
 criar_schema	../bovespa/EscritorSQLLite.py	/^    def criar_schema(self, schema_name='sql\/registro01_schema.sql'):$/;"	kind:member	line:34
 criar_tabela	../bovespa/main.py	/^def criar_tabela():$/;"	kind:function	line:7
-cross_val_score	../analise_de_sentimento/duh_scikit.py	/^    from sklearn.model_selection import cross_val_score$/;"	kind:namespace	line:79
-cross_validation	../analise_de_sentimento/duh_scikit.py	/^def cross_validation(classifier_name, classifier, X, y):$/;"	kind:function	line:77
-data	../plotting_data/plot_teste.py	/^data=[trace]$/;"	kind:variable	line:21
+cross_val_score	../analise_de_sentimento/duh_scikit.py	/^    from sklearn.model_selection import cross_val_score$/;"	kind:namespace	line:69
+cross_validation	../analise_de_sentimento/duh_scikit.py	/^def cross_validation(classifier, X, y):$/;"	kind:function	line:67
+csv_file	../correlacao/correlacao.py	/^csv_file = open("..\/\/data\/\/input\/\/correlacao.csv", "w")$/;"	kind:variable	line:165
 data_atualizacao	../extracao_dados/noticias/noticias/items.py	/^    data_atualizacao = scrapy.Field()/;"	kind:variable	line:14
 data_base	../bovespa/registro01.py	/^data_base = peewee.SqliteDatabase('\/home\/eduardo\/UEM\/GIT\/TCC\/data\/bovespa.db')$/;"	kind:variable	line:3
 data_base	../correlacao/registro01.py	/^data_base = peewee.SqliteDatabase('\/home\/eduardo\/UEM\/GIT\/TCC\/data\/bovespa.db')$/;"	kind:variable	line:3
@@ -80,14 +87,18 @@ data_vencimento	../bovespa/registro01.py	/^    data_vencimento =  peewee.DateFie
 data_vencimento	../correlacao/registro01.py	/^    data_vencimento =  peewee.DateField()$/;"	kind:variable	line:26
 database	../bovespa/registro01.py	/^        database = data_base/;"	kind:variable	line:33
 database	../correlacao/registro01.py	/^        database = data_base/;"	kind:variable	line:33
-dataset	../analise_de_sentimento/duh_text_blob.py	/^dataset = get_dataset('noticias_teste.csv')$/;"	kind:variable	line:28
-dataset	../correlacao/correlacao.py	/^dataset = get_dataset('noticias_teste.csv')                $/;"	kind:variable	line:125
-dataset	../correlacao/correlacao.py	/^dataset = get_dataset('scikit_sentimentos.csv')$/;"	kind:variable	line:130
-dataset_test	../analise_de_sentimento/duh_scikit.py	/^dataset_test = get_dataset_g1_treino('noticias_teste.csv')$/;"	kind:variable	line:153
-dataset_train	../analise_de_sentimento/duh_scikit.py	/^dataset_train = get_dataset_g1_treino('g1_noticias_treino.csv')$/;"	kind:variable	line:151
+dataset	../analise_de_sentimento/duh_text_blob.py	/^dataset = pd.concat([        $/;"	kind:variable	line:37
+dataset	../auxiliar_latex/criador_tabela_latex.py	/^dataset = get_dataset('output\/\/{}.csv'.format(nome_arquivo))$/;"	kind:variable	line:24
+dataset	../correlacao/correlacao.py	/^dataset = pd.concat([        $/;"	kind:variable	line:188
+dataset	../plotting_data/heatmap_correlacoes.py	/^dataset = get_dataset('correlacao.csv')$/;"	kind:variable	line:21
+dataset_test	../analise_de_sentimento/duh_scikit.py	/^dataset_test = pd.concat([                $/;"	kind:variable	line:152
+dataset_train	../analise_de_sentimento/duh_scikit.py	/^dataset_train = pd.concat([        $/;"	kind:variable	line:143
 datetime	../correlacao/correlacao.py	/^from datetime import datetime, timedelta$/;"	kind:namespace	line:15
+datetime	../correlacao/correlacao_data_anterior.py	/^from datetime import datetime, timedelta$/;"	kind:namespace	line:15
+directory	../plotting_data/extrair_graficos.py	/^directory = r'\/home\/eduardo\/UEM\/GIT\/TCC\/data\/plot\/'$/;"	kind:variable	line:32
 dismes	../bovespa/registro01.py	/^    dismes = peewee.IntegerField()$/;"	kind:variable	line:30
 dismes	../correlacao/registro01.py	/^    dismes = peewee.IntegerField()$/;"	kind:variable	line:30
+download_image	../plotting_data/extrair_graficos.py	/^def download_image(image):$/;"	kind:function	line:7
 duh_scikit.py	../analise_de_sentimento/duh_scikit.py	1;"	kind:file	line:1
 duh_text_blob.py	../analise_de_sentimento/duh_text_blob.py	1;"	kind:file	line:1
 escrever	../bovespa/escritor.py	/^    def escrever(self, registros): $/;"	kind:member	line:5
@@ -97,26 +108,32 @@ escritor.py	../bovespa/escritor.py	1;"	kind:file	line:1
 especificaco	../bovespa/registro01.py	/^    especificaco = peewee.CharField(max_length=10)$/;"	kind:variable	line:11
 especificaco	../correlacao/registro01.py	/^    especificaco = peewee.CharField(max_length=10)$/;"	kind:variable	line:11
 exame_noticias.py	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	1;"	kind:file	line:1
+extrair_graficos.py	../plotting_data/extrair_graficos.py	1;"	kind:file	line:1
 fator_cotacao	../bovespa/registro01.py	/^    fator_cotacao = peewee.IntegerField()$/;"	kind:variable	line:27
 fator_cotacao	../correlacao/registro01.py	/^    fator_cotacao = peewee.IntegerField()$/;"	kind:variable	line:27
-fig	../plotting_data/plot_teste.py	/^fig = Figure(data=data)$/;"	kind:variable	line:22
 find_packages	../extracao_dados/noticias/setup.py	/^from setuptools import setup, find_packages$/;"	kind:namespace	line:3
-font	../plotting_data/plot_teste_duh.py	/^        font=dict(family='Courier New, monospace', size=18, color='rgb(0,0,0)')$/;"	kind:variable	line:33
 format_google_url	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^    def format_google_url(self, url):                       $/;"	kind:member	line:22
 format_google_url	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^    def format_google_url(self, url):                       $/;"	kind:member	line:31
 g1_noticias.py	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	1;"	kind:file	line:1
-generate_csv	../analise_de_sentimento/duh_scikit.py	/^def generate_csv(classifier, dataset, data_features):$/;"	kind:function	line:73
-gerar_correlacao	../correlacao/correlacao.py	/^def gerar_correlacao(dataset):$/;"	kind:function	line:95
-gerar_metricas	../analise_de_sentimento/duh_scikit.py	/^def gerar_metricas(classifier_name, y_true, y_pred):        $/;"	kind:function	line:88
-gerar_valores_e_sentimentos	../correlacao/correlacao.py	/^def gerar_valores_e_sentimentos(dataset):$/;"	kind:function	line:73
+generate_csv	../analise_de_sentimento/duh_scikit.py	/^def generate_csv(classifier, dataset, data_features):$/;"	kind:function	line:63
+gerar_correlacao	../correlacao/correlacao.py	/^def gerar_correlacao(dataset, arquivo_salvar, dias):$/;"	kind:function	line:100
+gerar_correlacao	../correlacao/correlacao_data_anterior.py	/^def gerar_correlacao(dataset, arquivo_salvar):$/;"	kind:function	line:110
+gerar_metricas	../analise_de_sentimento/duh_scikit.py	/^def gerar_metricas(fonte, y_true, y_pred):        $/;"	kind:function	line:78
+gerar_valores_e_sentimentos	../correlacao/correlacao.py	/^def gerar_valores_e_sentimentos(dataset, dias):$/;"	kind:function	line:73
+gerar_valores_e_sentimentos	../correlacao/correlacao_data_anterior.py	/^def gerar_valores_e_sentimentos(dataset):$/;"	kind:function	line:73
 get_acao_petrobras	../correlacao/correlacao.py	/^def get_acao_petrobras(data_pregao):  $/;"	kind:function	line:37
+get_acao_petrobras	../correlacao/correlacao_data_anterior.py	/^def get_acao_petrobras(data_pregao):  $/;"	kind:function	line:37
 get_correlacao	../correlacao/correlacao.py	/^def get_correlacao(x, y):$/;"	kind:function	line:46
-get_dataset	../analise_de_sentimento/duh_text_blob.py	/^def get_dataset(filename):$/;"	kind:function	line:6
+get_correlacao	../correlacao/correlacao_data_anterior.py	/^def get_correlacao(x, y):$/;"	kind:function	line:46
+get_dataset	../analise_de_sentimento/duh_text_blob.py	/^def get_dataset(filename):$/;"	kind:function	line:15
+get_dataset	../auxiliar_latex/criador_tabela_latex.py	/^def get_dataset(filename):    $/;"	kind:function	line:15
 get_dataset	../correlacao/correlacao.py	/^def get_dataset(filename):$/;"	kind:function	line:23
-get_dataset_g1	../analise_de_sentimento/duh_scikit.py	/^def get_dataset_g1(filename):    $/;"	kind:function	line:22
-get_dataset_g1_treino	../analise_de_sentimento/duh_scikit.py	/^def get_dataset_g1_treino(filename):$/;"	kind:function	line:13
-get_translated_blob	../analise_de_sentimento/duh_text_blob.py	/^def get_translated_blob(text):$/;"	kind:function	line:11
-go	../plotting_data/plot_teste_duh.py	/^import plotly.graph_objs as go$/;"	kind:namespace	line:4
+get_dataset	../correlacao/correlacao_data_anterior.py	/^def get_dataset(filename):$/;"	kind:function	line:23
+get_dataset	../plotting_data/heatmap_correlacoes.py	/^def get_dataset(filename):$/;"	kind:function	line:8
+get_dataset_g1_rotulado	../analise_de_sentimento/duh_scikit.py	/^def get_dataset_g1_rotulado(filename):    $/;"	kind:function	line:13
+get_translated_blob	../analise_de_sentimento/duh_text_blob.py	/^def get_translated_blob(text):$/;"	kind:function	line:20
+go	../plotting_data/plot_acao_sentimento.py	/^import plotly.graph_objs as go$/;"	kind:namespace	line:4
+heatmap_correlacoes.py	../plotting_data/heatmap_correlacoes.py	1;"	kind:file	line:1
 indicador_cp	../bovespa/registro01.py	/^    indicador_cp = peewee.IntegerField()$/;"	kind:variable	line:25
 indicador_cp	../correlacao/registro01.py	/^    indicador_cp = peewee.IntegerField()$/;"	kind:variable	line:25
 items.py	../extracao_dados/noticias/noticias/items.py	1;"	kind:file	line:1
@@ -126,35 +143,41 @@ leitor.py	../bovespa/leitor.py	1;"	kind:file	line:1
 leitor_peewee.py	../bovespa/leitor_peewee.py	1;"	kind:file	line:1
 ler	../bovespa/leitor.py	/^    def ler(self, arquivo): $/;"	kind:member	line:39
 ler	../bovespa/leitor_peewee.py	/^    def ler(self, arquivo): $/;"	kind:member	line:37
-load_dictionary	../plotting_data/plot_teste.py	/^def load_dictionary(name):$/;"	kind:function	line:6
-load_dictionary	../plotting_data/plot_teste_duh.py	/^def load_dictionary(name):$/;"	kind:function	line:7
+load_dictionary	../plotting_data/plot_acao_sentimento.py	/^def load_dictionary(name):$/;"	kind:function	line:7
 main.py	../bovespa/main.py	1;"	kind:file	line:1
 matplotlib	../analise_de_sentimento/duh_scikit.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:10
-mode	../plotting_data/plot_teste_duh.py	/^    mode = 'lines+markers',$/;"	kind:variable	line:22
+matplotlib	../plotting_data/heatmap_correlacoes.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:6
 moeda	../bovespa/registro01.py	/^    moeda = peewee.CharField(max_length=4)$/;"	kind:variable	line:13
 moeda	../correlacao/registro01.py	/^    moeda = peewee.CharField(max_length=4)$/;"	kind:variable	line:13
+move_rename_image	../plotting_data/extrair_graficos.py	/^def move_rename_image(image_name):$/;"	kind:function	line:21
 name	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^    name = 'exame_noticias'$/;"	kind:variable	line:13
 name	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^    name = 'g1_noticias'$/;"	kind:variable	line:11
 name	../extracao_dados/noticias/setup.py	/^    name         = 'project',$/;"	kind:variable	line:6
-name	../plotting_data/plot_teste_duh.py	/^    name = 'Sentimento'$/;"	kind:variable	line:23
-nayve_classifier	../analise_de_sentimento/duh_scikit.py	/^nayve_classifier = train_nayve(X_train, y_train)$/;"	kind:variable	line:166
+nayve_classifier	../analise_de_sentimento/duh_scikit.py	/^nayve_classifier = train_nayve(X_train, y_train)$/;"	kind:variable	line:167
 new_registro01	../bovespa/leitor_peewee.py	/^def new_registro01(linha):$/;"	kind:function	line:6
 nltk	../analise_de_sentimento/KaggleWord2VecUtility.py	/^import nltk$/;"	kind:namespace	line:4
+nome_arquivo	../auxiliar_latex/criador_tabela_latex.py	/^nome_arquivo = 'sentimentos_scikit'$/;"	kind:variable	line:23
 nome_resumido	../bovespa/registro01.py	/^    nome_resumido = peewee.CharField(max_length=12)$/;"	kind:variable	line:10
 nome_resumido	../correlacao/registro01.py	/^    nome_resumido = peewee.CharField(max_length=12)$/;"	kind:variable	line:10
 normalizar	../correlacao/correlacao.py	/^def normalizar(dic, range):    $/;"	kind:function	line:49
+normalizar	../correlacao/correlacao_data_anterior.py	/^def normalizar(dic, range):    $/;"	kind:function	line:49
 normalizar_sentimentos	../correlacao/correlacao.py	/^def normalizar_sentimentos(sentimentos):$/;"	kind:function	line:63
+normalizar_sentimentos	../correlacao/correlacao_data_anterior.py	/^def normalizar_sentimentos(sentimentos):$/;"	kind:function	line:63
 np	../analise_de_sentimento/KaggleWord2VecUtility.py	/^import numpy as np$/;"	kind:namespace	line:7
 np	../analise_de_sentimento/duh_scikit.py	/^import numpy as np$/;"	kind:namespace	line:9
 np	../correlacao/correlacao.py	/^import numpy as np$/;"	kind:namespace	line:6
-np	../plotting_data/plot_teste.py	/^import numpy as np $/;"	kind:namespace	line:1
-np	../plotting_data/plot_teste_duh.py	/^import numpy as np $/;"	kind:namespace	line:1
-operator	../correlacao/correlacao.py	/^    import operator$/;"	kind:namespace	line:101
+np	../correlacao/correlacao_data_anterior.py	/^import numpy as np$/;"	kind:namespace	line:6
+np	../plotting_data/plot_acao_sentimento.py	/^import numpy as np $/;"	kind:namespace	line:1
+operator	../correlacao/correlacao.py	/^    import operator$/;"	kind:namespace	line:103
+operator	../correlacao/correlacao_data_anterior.py	/^    import operator$/;"	kind:namespace	line:113
 os	../analise_de_sentimento/duh_scikit.py	/^import os$/;"	kind:namespace	line:3
 os	../analise_de_sentimento/duh_text_blob.py	/^import os$/;"	kind:namespace	line:1
+os	../auxiliar_latex/criador_tabela_latex.py	/^import os$/;"	kind:namespace	line:1
 os	../correlacao/correlacao.py	/^import os$/;"	kind:namespace	line:4
-output	../analise_de_sentimento/duh_text_blob.py	/^output = pd.DataFrame(data={$/;"	kind:variable	line:30
-output	../analise_de_sentimento/duh_text_blob.py	/^output = pd.DataFrame(data={$/;"	kind:variable	line:40
+os	../correlacao/correlacao_data_anterior.py	/^import os$/;"	kind:namespace	line:4
+os	../plotting_data/extrair_graficos.py	/^import os $/;"	kind:namespace	line:3
+os	../plotting_data/heatmap_correlacoes.py	/^import os$/;"	kind:namespace	line:1
+output	../analise_de_sentimento/duh_text_blob.py	/^output = pd.DataFrame(data={$/;"	kind:variable	line:50
 packages	../extracao_dados/noticias/setup.py	/^    packages     = find_packages(),$/;"	kind:variable	line:8
 parse	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^    def parse(self, response):$/;"	kind:member	line:25
 parse	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^    def parse(self, response):$/;"	kind:member	line:34
@@ -165,19 +188,26 @@ parse_qs	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^from urlpa
 pd	../analise_de_sentimento/KaggleWord2VecUtility.py	/^import pandas as pd$/;"	kind:namespace	line:6
 pd	../analise_de_sentimento/duh_scikit.py	/^import pandas as pd$/;"	kind:namespace	line:8
 pd	../analise_de_sentimento/duh_text_blob.py	/^import pandas as pd$/;"	kind:namespace	line:2
+pd	../auxiliar_latex/criador_tabela_latex.py	/^import pandas as pd$/;"	kind:namespace	line:2
 pd	../correlacao/correlacao.py	/^import pandas as pd$/;"	kind:namespace	line:5
+pd	../correlacao/correlacao_data_anterior.py	/^import pandas as pd$/;"	kind:namespace	line:5
+pd	../plotting_data/heatmap_correlacoes.py	/^import pandas as pd$/;"	kind:namespace	line:4
 pearsonr	../correlacao/correlacao.py	/^from scipy.stats.stats import pearsonr$/;"	kind:namespace	line:12
+pearsonr	../correlacao/correlacao_data_anterior.py	/^from scipy.stats.stats import pearsonr$/;"	kind:namespace	line:12
 peewee	../bovespa/main.py	/^import peewee$/;"	kind:namespace	line:1
 peewee	../bovespa/registro01.py	/^import peewee$/;"	kind:namespace	line:1
 peewee	../correlacao/correlacao.py	/^import peewee$/;"	kind:namespace	line:2
+peewee	../correlacao/correlacao_data_anterior.py	/^import peewee$/;"	kind:namespace	line:2
 peewee	../correlacao/registro01.py	/^import peewee$/;"	kind:namespace	line:1
-plot_confusion_matrix	../analise_de_sentimento/duh_scikit.py	/^def plot_confusion_matrix(cm, classes,$/;"	kind:function	line:117
-plot_teste.py	../plotting_data/plot_teste.py	1;"	kind:file	line:1
-plot_teste_duh.py	../plotting_data/plot_teste_duh.py	1;"	kind:file	line:1
-plotly	../plotting_data/plot_teste_duh.py	/^import plotly.graph_objs as go$/;"	kind:namespace	line:4
+pivot_correlacao	../plotting_data/heatmap_correlacoes.py	/^pivot_correlacao = dataset.pivot_table(index='fonte', columns='dias', values='correlacao')$/;"	kind:variable	line:26
+pivot_pvalue	../plotting_data/heatmap_correlacoes.py	/^pivot_pvalue = dataset.pivot_table(index='fonte', columns='dias', values='pvalue')$/;"	kind:variable	line:27
+plot	../plotting_data/heatmap_correlacoes.py	/^def plot(data):    $/;"	kind:function	line:14
+plot_acao_sentimento.py	../plotting_data/plot_acao_sentimento.py	1;"	kind:file	line:1
+plot_confusion_matrix	../analise_de_sentimento/duh_scikit.py	/^def plot_confusion_matrix(cm, classes,$/;"	kind:function	line:109
+plotly	../plotting_data/plot_acao_sentimento.py	/^import plotly.graph_objs as go$/;"	kind:namespace	line:4
 plt	../analise_de_sentimento/duh_scikit.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:10
-ply	../plotting_data/plot_teste.py	/^import plotly as ply$/;"	kind:namespace	line:3
-ply	../plotting_data/plot_teste_duh.py	/^import plotly as ply$/;"	kind:namespace	line:3
+plt	../plotting_data/heatmap_correlacoes.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:6
+ply	../plotting_data/plot_acao_sentimento.py	/^import plotly as ply$/;"	kind:namespace	line:3
 prazo_termo	../bovespa/registro01.py	/^    prazo_termo = peewee.CharField(max_length=3)    $/;"	kind:variable	line:12
 prazo_termo	../correlacao/registro01.py	/^    prazo_termo = peewee.CharField(max_length=3)    $/;"	kind:variable	line:12
 preco_abertura	../bovespa/registro01.py	/^    preco_abertura = peewee.DecimalField(max_digits=11, decimal_places=2)$/;"	kind:variable	line:14
@@ -197,12 +227,15 @@ preco_ultimo	../correlacao/registro01.py	/^    preco_ultimo = peewee.DecimalFiel
 preexe	../bovespa/registro01.py	/^    preexe = peewee.DecimalField(max_digits=11, decimal_places=2)$/;"	kind:variable	line:24
 preexe	../correlacao/registro01.py	/^    preexe = peewee.DecimalField(max_digits=11, decimal_places=2)$/;"	kind:variable	line:24
 preprocessing	../correlacao/correlacao.py	/^from sklearn import preprocessing$/;"	kind:namespace	line:9
+preprocessing	../correlacao/correlacao_data_anterior.py	/^from sklearn import preprocessing$/;"	kind:namespace	line:9
+print_correlacao	../correlacao/correlacao_data_anterior.py	/^def print_correlacao(campo,normal,pcorrelacao, text_file):$/;"	kind:function	line:151
 ptoexe	../bovespa/registro01.py	/^    ptoexe  = peewee.DecimalField(max_digits=11, decimal_places=2)$/;"	kind:variable	line:28
 ptoexe	../correlacao/registro01.py	/^    ptoexe  = peewee.DecimalField(max_digits=11, decimal_places=2)$/;"	kind:variable	line:28
 quantidade_titulos	../bovespa/registro01.py	/^    quantidade_titulos = peewee.IntegerField()$/;"	kind:variable	line:22
 quantidade_titulos	../correlacao/registro01.py	/^    quantidade_titulos = peewee.IntegerField()$/;"	kind:variable	line:22
 re	../analise_de_sentimento/KaggleWord2VecUtility.py	/^import re$/;"	kind:namespace	line:3
 re	../correlacao/correlacao.py	/^import re$/;"	kind:namespace	line:14
+re	../correlacao/correlacao_data_anterior.py	/^import re$/;"	kind:namespace	line:14
 re	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^import re$/;"	kind:namespace	line:9
 registro01.py	../bovespa/registro01.py	1;"	kind:file	line:1
 registro01.py	../correlacao/registro01.py	1;"	kind:file	line:1
@@ -211,44 +244,45 @@ registros	../bovespa/main.py	/^registros = leitor.ler("\/home\/eduardo\/UEM\/GIT
 review_to_sentences	../analise_de_sentimento/KaggleWord2VecUtility.py	/^    def review_to_sentences( review, tokenizer, remove_stopwords=False ):$/;"	kind:member	line:40
 review_to_wordlist	../analise_de_sentimento/KaggleWord2VecUtility.py	/^    def review_to_wordlist( review, remove_stopwords=False ):$/;"	kind:member	line:17
 rows	../bovespa/main.py	/^rows = Registro01.select().order_by(Registro01.preco_ultimo)$/;"	kind:variable	line:29
-save_dataset	../analise_de_sentimento/duh_scikit.py	/^def save_dataset(dataset, predictions):$/;"	kind:function	line:67
+save_dataset	../analise_de_sentimento/duh_scikit.py	/^def save_dataset(dataset, predictions):$/;"	kind:function	line:57
 save_dictionary	../correlacao/correlacao.py	/^def save_dictionary(dictionary, name):$/;"	kind:function	line:17
+save_dictionary	../correlacao/correlacao_data_anterior.py	/^def save_dictionary(dictionary, name):$/;"	kind:function	line:17
+save_to_csv	../correlacao/correlacao.py	/^def save_to_csv(campo,dias,pcorrelacao, csv_file):    $/;"	kind:function	line:154
+save_to_latex_format	../correlacao/correlacao.py	/^def save_to_latex_format(campo,dias,pcorrelacao, text_file):    $/;"	kind:function	line:138
 scrapy	../extracao_dados/noticias/noticias/items.py	/^import scrapy$/;"	kind:namespace	line:8
-sentiment	../analise_de_sentimento/duh_text_blob.py	/^def sentiment(dataset):$/;"	kind:function	line:15
-sentimentos_normalizado	../plotting_data/plot_teste.py	/^sentimentos_normalizado = load_dictionary('sentimentos_normalizado.npy')$/;"	kind:variable	line:10
-sentimentos_normalizado	../plotting_data/plot_teste_duh.py	/^sentimentos_normalizado = load_dictionary('sentimentos_normalizado.npy')$/;"	kind:variable	line:11
+sentiment	../analise_de_sentimento/duh_text_blob.py	/^def sentiment(dataset):$/;"	kind:function	line:24
 settings.py	../extracao_dados/noticias/noticias/settings.py	1;"	kind:file	line:1
 setup	../extracao_dados/noticias/setup.py	/^from setuptools import setup, find_packages$/;"	kind:namespace	line:3
 setup.py	../extracao_dados/noticias/setup.py	1;"	kind:file	line:1
-sklearn	../analise_de_sentimento/duh_scikit.py	/^    import sklearn.metrics as skm        $/;"	kind:namespace	line:89
-skm	../analise_de_sentimento/duh_scikit.py	/^    import sklearn.metrics as skm        $/;"	kind:namespace	line:89
+shutil	../plotting_data/extrair_graficos.py	/^import shutil$/;"	kind:namespace	line:4
+sklearn	../analise_de_sentimento/duh_scikit.py	/^    import sklearn.metrics as skm        $/;"	kind:namespace	line:79
+skm	../analise_de_sentimento/duh_scikit.py	/^    import sklearn.metrics as skm        $/;"	kind:namespace	line:79
+sns	../plotting_data/heatmap_correlacoes.py	/^import seaborn as sns$/;"	kind:namespace	line:5
 sqlite3	../bovespa/EscritorSQLLite.py	/^import sqlite3$/;"	kind:namespace	line:1
 start_requests	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^    def start_requests(self):$/;"	kind:member	line:17
 start_requests	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^    def start_requests(self):$/;"	kind:member	line:16
 stopwords	../analise_de_sentimento/KaggleWord2VecUtility.py	/^from nltk.corpus import stopwords$/;"	kind:namespace	line:10
-test	../analise_de_sentimento/duh_scikit.py	/^test = clean_text_field(dataset_test, 'conteudo', True)$/;"	kind:variable	line:158
-testar	../analise_de_sentimento/duh_scikit.py	/^def testar(classificador, X,Y):    $/;"	kind:function	line:146
+test	../analise_de_sentimento/duh_scikit.py	/^test = clean_text_field(dataset_test, 'conteudo', False)$/;"	kind:variable	line:159
+testar	../analise_de_sentimento/duh_scikit.py	/^def testar(fonte, classificador, X,Y):    $/;"	kind:function	line:138
+text_file	../correlacao/correlacao.py	/^text_file = open("..\/\/data\/\/auxiliar\/\/latex_correlacao.txt", "w")$/;"	kind:variable	line:164
+time	../plotting_data/extrair_graficos.py	/^import time$/;"	kind:namespace	line:1
 timedelta	../correlacao/correlacao.py	/^from datetime import datetime, timedelta$/;"	kind:namespace	line:15
+timedelta	../correlacao/correlacao_data_anterior.py	/^from datetime import datetime, timedelta$/;"	kind:namespace	line:15
 tipo_mercado	../bovespa/registro01.py	/^    tipo_mercado = peewee.IntegerField()$/;"	kind:variable	line:9
 tipo_mercado	../correlacao/registro01.py	/^    tipo_mercado = peewee.IntegerField()$/;"	kind:variable	line:9
-title	../plotting_data/plot_teste_duh.py	/^        title="Ação X Sentimento - Setembro Normalizado",        $/;"	kind:variable	line:32
 titulo	../extracao_dados/noticias/noticias/items.py	/^    titulo = scrapy.Field()$/;"	kind:variable	line:12
 to_float	../bovespa/leitor.py	/^def to_float(value):$/;"	kind:function	line:1
 to_float	../bovespa/leitor_peewee.py	/^def to_float(value):$/;"	kind:function	line:3
+to_latex	../analise_de_sentimento/duh_text_blob.py	/^def to_latex(dataset):$/;"	kind:function	line:5
+to_latex	../auxiliar_latex/criador_tabela_latex.py	/^def to_latex(dataset, arquivo):$/;"	kind:function	line:5
 total_negocios	../bovespa/registro01.py	/^    total_negocios = peewee.IntegerField()$/;"	kind:variable	line:21
 total_negocios	../correlacao/registro01.py	/^    total_negocios = peewee.IntegerField()$/;"	kind:variable	line:21
-trace	../plotting_data/plot_teste.py	/^trace = Heatmap($/;"	kind:variable	line:12
-trace0	../plotting_data/plot_teste_duh.py	/^trace0 = go.Scatter($/;"	kind:variable	line:13
-trace1	../plotting_data/plot_teste_duh.py	/^trace1 = go.Scatter($/;"	kind:variable	line:19
-train	../analise_de_sentimento/duh_scikit.py	/^train = clean_text_field(dataset_train, 'conteudo', False)$/;"	kind:variable	line:157
-train_nayve	../analise_de_sentimento/duh_scikit.py	/^def train_nayve(data_features, data_labels):    $/;"	kind:function	line:60
-train_test_split	../analise_de_sentimento/duh_scikit.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:161
+train	../analise_de_sentimento/duh_scikit.py	/^train = clean_text_field(dataset_train, 'conteudo', False)$/;"	kind:variable	line:158
+train_nayve	../analise_de_sentimento/duh_scikit.py	/^def train_nayve(data_features, data_labels):    $/;"	kind:function	line:51
+train_test_split	../analise_de_sentimento/duh_scikit.py	/^from sklearn.model_selection import train_test_split$/;"	kind:namespace	line:162
 urlparse	../extracao_dados/noticias/noticias/spiders/exame_noticias.py	/^from urlparse import urlparse, parse_qs$/;"	kind:namespace	line:4
 urlparse	../extracao_dados/noticias/noticias/spiders/g1_noticias.py	/^from urlparse import urlparse, parse_qs$/;"	kind:namespace	line:4
-valores_acao	../plotting_data/plot_teste.py	/^valores_acao = load_dictionary('acoes_normalizado.npy')$/;"	kind:variable	line:9
-valores_acao	../plotting_data/plot_teste_duh.py	/^valores_acao = load_dictionary('acoes_normalizado.npy')$/;"	kind:variable	line:10
 version	../extracao_dados/noticias/setup.py	/^    version      = '1.0',$/;"	kind:variable	line:7
 volume_titulos	../bovespa/registro01.py	/^    volume_titulos = peewee.DecimalField(max_digits=16, decimal_places=2)$/;"	kind:variable	line:23
 volume_titulos	../correlacao/registro01.py	/^    volume_titulos = peewee.DecimalField(max_digits=16, decimal_places=2)$/;"	kind:variable	line:23
-x	../plotting_data/plot_teste_duh.py	/^    x = list(sentimentos_normalizado.keys()),    $/;"	kind:variable	line:20
-y	../plotting_data/plot_teste_duh.py	/^    y = list(sentimentos_normalizado.values()),$/;"	kind:variable	line:21
+webdriver	../plotting_data/extrair_graficos.py	/^from selenium import webdriver$/;"	kind:namespace	line:2

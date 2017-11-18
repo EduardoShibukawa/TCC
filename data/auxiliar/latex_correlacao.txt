@@ -1,0 +1,48 @@
+1 - Dados de maio    & 5 & 38.57\% & 14.01\% \\
+2 - Dados de junho   & 5 & 26.69\% & 35.63\% \\
+3 - Dados de julho   & 5 &  4.07\% & 89.51\% \\
+4 - Dados de agosto  & 5 &  1.26\% & 97.25\% \\
+5 - Dados de setembro & 5 & -7.52\% & 78.21\% \\
+6 - Dados de outubro & 5 & 43.15\% & 12.34\% \\
+7 - Dados da previsão & 5 & 11.71\% & 69.01\% \\
+1 - Dados de maio    & 4 & 37.04\% & 15.78\% \\
+2 - Dados de junho   & 4 & 30.48\% & 28.93\% \\
+3 - Dados de julho   & 4 &  6.67\% & 82.86\% \\
+4 - Dados de agosto  & 4 & 33.48\% & 34.43\% \\
+5 - Dados de setembro & 4 & -25.16\% & 34.72\% \\
+6 - Dados de outubro & 4 & 37.30\% & 18.90\% \\
+7 - Dados da previsão & 4 & 13.25\% & 65.16\% \\
+1 - Dados de maio    & 3 & 41.98\% & 10.54\% \\
+2 - Dados de junho   & 3 & 25.28\% & 38.33\% \\
+3 - Dados de julho   & 3 & 10.16\% & 74.11\% \\
+4 - Dados de agosto  & 3 & 28.07\% & 43.21\% \\
+5 - Dados de setembro & 3 & -28.33\% & 28.77\% \\
+6 - Dados de outubro & 3 & 42.60\% & 12.89\% \\
+7 - Dados da previsão & 3 &  9.12\% & 75.65\% \\
+1 - Dados de maio    & 2 & 43.17\% &  9.50\% \\
+2 - Dados de junho   & 2 & 22.21\% & 44.53\% \\
+3 - Dados de julho   & 2 & 14.32\% & 64.08\% \\
+4 - Dados de agosto  & 2 & 51.83\% & 12.48\% \\
+5 - Dados de setembro & 2 & -33.38\% & 20.64\% \\
+6 - Dados de outubro & 2 & 32.28\% & 26.03\% \\
+7 - Dados da previsão & 2 & -0.86\% & 97.67\% \\
+1 - Dados de maio    & 1 & 45.98\% &  7.32\% \\
+2 - Dados de junho   & 1 &  4.50\% & 87.86\% \\
+3 - Dados de julho   & 1 & 23.81\% & 43.34\% \\
+4 - Dados de agosto  & 1 & 19.04\% & 59.84\% \\
+5 - Dados de setembro & 1 & -33.18\% & 20.92\% \\
+6 - Dados de outubro & 1 & 43.21\% & 12.29\% \\
+7 - Dados da previsão & 1 & 15.71\% & 59.16\% \\
+1 - Dados de maio    & 0 & 16.96\% & 53.00\% \\
+2 - Dados de junho   & 0 &  3.91\% & 89.45\% \\
+3 - Dados de julho   & 0 & -9.19\% & 76.53\% \\
+4 - Dados de agosto  & 0 &  4.62\% & 89.92\% \\
+5 - Dados de setembro & 0 & -16.37\% & 54.46\% \\
+6 - Dados de outubro & 0 & 22.58\% & 43.77\% \\
+7 - Dados da previsão & 0 & -14.97\% & 60.95\% \\
+8 - Dados geral      & 5 & 25.21\% &  2.15\% \\
+8 - Dados geral      & 4 & 24.75\% &  2.41\% \\
+8 - Dados geral      & 3 & 24.68\% &  2.45\% \\
+8 - Dados geral      & 2 & 24.55\% &  2.53\% \\
+8 - Dados geral      & 1 & 24.52\% &  2.55\% \\
+8 - Dados geral      & 0 & 18.12\% & 10.12\% \\

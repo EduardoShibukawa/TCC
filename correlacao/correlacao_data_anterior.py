@@ -70,55 +70,68 @@ def normalizar_sentimentos(sentimentos):
 
     return sentimentos_dup
 
-def gerar_valores_e_sentimentos(dataset, dias):
+def gerar_valores_e_sentimentos(dataset):
     regex = r"(\d{2})\/(\d{2})\/(\d{4})"
     subst = r"\3\2\1"
 
-    sentimentos = {}
     valores_acao = {}
-    for index, row in dataset.iterrows():        
+    sentimentos = {} 
+
+    for index, row in dataset.iterrows():                
         data = re.sub(regex, subst, row['data'], 0)            
         data = data.strip()        
-        data = datetime.strptime(data, "%Y%m%d").date() 
+        data = datetime.strptime(data, "%Y%m%d").date()            
         if data not in sentimentos:
             sentimentos[data] = row['sentimento']        
         else:
-            sentimentos[data] += row['sentimento']
-                
-        data_acao = data + timedelta(days=dias)
-        acao = get_acao_petrobras(data_acao.strftime('%Y%m%d'))                        
-        while not acao:
-            data_acao = data_acao + timedelta(days=1)
-            acao = get_acao_petrobras(data_acao.strftime('%Y%m%d'))
+            sentimentos[data] += row['sentimento']        
+                    
 
-        if (acao and data not in valores_acao):
-            valores_acao[data] = float(acao.preco_ultimo)    
-
+    dates = list(sentimentos.keys())        
+    dates.reverse()    
+    for i, data_sentimento in enumerate(dates):                
+        if i in [0,1]:
+            data_acao = data_sentimento + timedelta(days=i+1)
+        else:
+            data_acao = dates[i]
+                    
+        acao = get_acao_petrobras(data_acao.strftime('%Y%m%d'))                
+        while not acao:            
+            data_acao = data_acao + timedelta(days=1)                        
+            acao = get_acao_petrobras(data_acao.strftime('%Y%m%d'))                
+            
+        if (acao and data_sentimento not in valores_acao):       
+            valores_acao[data_sentimento] = float(acao.preco_ultimo)
+                                                            
     return valores_acao, sentimentos
 
 
-def gerar_correlacao(dataset, arquivo_salvar, dias):
-    valores_acao, sentimentos = gerar_valores_e_sentimentos(dataset, dias)
+
+def gerar_correlacao(dataset, arquivo_salvar):
+    valores_acao, sentimentos = gerar_valores_e_sentimentos(dataset)
         
     import operator
         
-    max_range = 1 #max(valores_acao.items(), key=operator.itemgetter(1))[1]
-    min_range = -1 #min(valores_acao.items(), key=operator.itemgetter(1))[1]        
+#    max_range = max(valores_acao.items(), key=operator.itemgetter(1))[1]
+#    min_range = min(valores_acao.items(), key=operator.itemgetter(1))[1]        
+
+    max_range = 1
+    min_range = -1
 
     sentimentos_normalizado = normalizar(sentimentos, (min_range, max_range))    
     #sentimentos_normalizado = normalizar_sentimentos(sentimentos)    
     acoes_normalizado = normalizar(valores_acao, (min_range, max_range))                
-        
+            
     save_dictionary(valores_acao, 'valores_acao_{}'.format(arquivo_salvar))    
     save_dictionary(sentimentos_normalizado, 'sentimentos_normalizado_{}'.format(arquivo_salvar))
     save_dictionary(acoes_normalizado, 'acoes_normalizado_{}'.format(arquivo_salvar))
-
+    
     x = []
     y = []
     x_normalizado = []
     y_normalizada = []
 
-    for data in sorted(sentimentos.keys()):        
+    for data in sorted(sentimentos.keys()):                
         x.append(sentimentos[data])
         x_normalizado.append(sentimentos_normalizado[data])
         y.append(valores_acao[data])
@@ -135,72 +148,50 @@ def gerar_correlacao(dataset, arquivo_salvar, dias):
 
     return correlacao, correlacao_normalizado
 
-def save_to_latex_format(campo,dias,pcorrelacao, text_file):    
-    print("{:20s} & {:0} & {:5.2f}\\% & {:5.2f}\\% \\\\".format(
-        campo,
-        dias,
-        pcorrelacao[0] * 100,
-        pcorrelacao[1] * 100
-    ), file=text_file)    
-
-    print("{:20s} Dias {:0} Correlação: {:5.2f}, p-Value: {:5.2f}".format(
+def print_correlacao(campo,normal,pcorrelacao, text_file):
+    if normal:
+        print("{} & Sim & {:.2f}\\% & {:.2f}\\% \\\\".format(
             campo,
-            dias,
             pcorrelacao[0] * 100,
             pcorrelacao[1] * 100
-    ))    
+        ), file=text_file)
+    else:
+        print("{} & Não & {:.2f}\\% & {:.2f}\\% \\\\".format(
+            campo,
+            pcorrelacao[0] * 100,
+            pcorrelacao[1] * 100
+        ), file=text_file)
 
-
-def save_to_csv(campo,dias,pcorrelacao, csv_file):    
-    print("{:20s},{:0},{:5.2f},{:5.2f}".format(
-        campo,
-        dias,
-        pcorrelacao[0] * 100,
-        pcorrelacao[1] * 100
-    ), file=csv_file)    
-
-
-
-text_file = open("..//data//auxiliar//latex_correlacao.txt", "w")
-csv_file = open("..//data//input//correlacao.csv", "w")
-
-arquivos = [        
-    'noticias_maio.csv',
-    'noticias_junho.csv',
-    'noticias_julho.csv',
-    'noticias_agosto.csv',
-    'noticias_setembro.csv',
-    'noticias_outubro.csv',
-    'sentimentos_scikit.csv'
-]    
-
-#for dias in range(0,6):    
-for dias in range(5,-1,-1):
-    i = 0
+    
+    print("{} Correlação: {:.2f}, p-Value: {:.2f}".format(
+            campo,
+            pcorrelacao[0] * 100,
+            pcorrelacao[1] * 100
+    ))
+    
+with open("..//data//auxiliar//latex_correlação.txt", "w") as text_file:
+    arquivos = [        
+        'noticias_maio.csv',
+        'noticias_junho.csv',
+        'noticias_julho.csv',
+        'noticias_agosto.csv',
+        'noticias_setembro.csv',
+        'noticias_outubro.csv'
+    ]    
     for arquivo in arquivos:
-        i = i + 1
-        campo = "{} - Dados de {}".format(i, arquivo[9:arquivo.find('.csv')])        
-        campo = campo.replace("de os_scikit", "da previsão")
-        #campo = "Dados de {}".format(arquivo[9:arquivo.find('.csv')])
-        correlacao, correlacao_normalizado = gerar_correlacao(get_dataset(arquivo), arquivo, dias)
-        save_to_latex_format(campo, dias, correlacao_normalizado, text_file)        
-        save_to_csv(campo, dias, correlacao_normalizado, csv_file)        
-dataset = pd.concat([        
-        get_dataset('noticias_maio.csv'),
-        get_dataset('noticias_junho.csv'),
-        get_dataset('noticias_julho.csv'),
-        get_dataset('noticias_agosto.csv'),                
-        get_dataset('noticias_setembro.csv'),
-        get_dataset('noticias_outubro.csv'), 
-    ], ignore_index=True 
-)
+        correlacao, correlacao_normalizado = gerar_correlacao(get_dataset(arquivo), arquivo)        
+        campo = "Dados de " + arquivo[9:arquivo.find('.csv') ]                        
+        print_correlacao(campo, True, correlacao_normalizado, text_file)        
 
-campo = "8 - Dados geral"
-for dias in range(5,-1,-1):
-#campo = "Dados geral"
-#for dias in range(0,8):
-    correlacao, correlacao_normalizado = gerar_correlacao(dataset, 'geral', dias)
-    save_to_latex_format(campo, dias, correlacao_normalizado, text_file)        
-    save_to_csv(campo, dias, correlacao_normalizado, csv_file)            
-text_file.close()
-csv_file.close()
+    dataset = pd.concat([        
+            get_dataset('noticias_maio.csv'),
+            get_dataset('noticias_junho.csv'),
+            get_dataset('noticias_julho.csv'),
+            get_dataset('noticias_agosto.csv'),                
+            get_dataset('noticias_setembro.csv'),
+            get_dataset('noticias_outubro.csv'), 
+        ], ignore_index=True 
+    )
+
+    correlacao, correlacao_normalizado = gerar_correlacao(dataset, 'geral')        
+    print_correlacao("Dados geral", True, correlacao_normalizado, text_file)        

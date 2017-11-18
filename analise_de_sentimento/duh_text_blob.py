@@ -3,13 +3,13 @@ import pandas as pd
 from textblob import TextBlob
 
 def to_latex(dataset):
-    with open("latex_text_blob.txt", "w") as text_file:
+    with open("..//data//auxiliar//latex_text_blob.txt", "w") as text_file:
         for index, row in dataset.iterrows():                
-            print("{} & {} & {:4f} & {:4f} \\\\".format(
+            print("{} & {} & {:.2f}\\% & {:.2f}\\% \\\\".format(
                 row['data'],
                 row['dtitulo'][:80].replace('$', '\\$').replace('%', '\\%') + ' ...',
-                row['sentimento'][0],
-                row['sentimento'][1]
+                row['sentimento'][0] * 100,
+                row['sentimento'][1] * 100
             ), file=text_file)            
 
 def get_dataset(filename):

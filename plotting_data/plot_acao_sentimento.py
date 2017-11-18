@@ -8,16 +8,17 @@ def load_dictionary(name):
     return np.load('..//data//dics//' + name).item(0)
 
 arquivos = [        
-        'noticias_maio.csv',
-        'noticias_junho.csv',
-        'noticias_julho.csv',
-        'noticias_agosto.csv',
-        'noticias_setembro.csv',
-        'noticias_outubro.csv'
+        #'noticias_maio.csv',
+        #'noticias_junho.csv',
+        #'noticias_julho.csv',
+        #'noticias_agosto.csv',
+        #'noticias_setembro.csv',
+        #'noticias_outubro.csv',
+        'sentimentos_scikit.csv'
 ]    
 
 for arquivo in arquivos:
-    campo = "Dados de " + arquivo[9:arquivo.find('.csv') ]        
+    campo = "Dados de " + arquivo[9:arquivo.find('.csv') ]            
     valores_acao = load_dictionary('acoes_normalizado_{}.npy'.format(arquivo))
     sentimentos_normalizado = load_dictionary('sentimentos_normalizado_{}.npy'.format(arquivo))
     # Create traces
